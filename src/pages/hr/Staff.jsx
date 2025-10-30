@@ -1,19 +1,17 @@
-import { LuUser } from "react-icons/lu";
 import Layout from "../../_layout";
 import { Link } from "react-router-dom";
 import { GoPlus } from "react-icons/go";
 import { IoListOutline } from "react-icons/io5";
 import { IoSearchSharp } from "react-icons/io5";
-import TableHeader from "../../components/TableHeader";
 import StaffCard from "../../components/StaffCard";
-import React, { useEffect, useRef, useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 
 const Staff = () => {
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
   const handleEdit = (name) => alert(`Edit clicked for ${name}`);
   const handleDelete = (name) => alert(`Delete clicked for ${name}`);
+ 
+
 
   const staffList = [
     {
@@ -74,10 +72,8 @@ const Staff = () => {
   },
   
   ];
-  
 
-  // 1. Initialize the Bootstrap Modal instance when the component mounts
- 
+
 
   return (
     <Layout>

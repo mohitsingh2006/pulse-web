@@ -7,7 +7,7 @@ import FormError from "./FormError";
 import DatePicker from "react-datepicker";
 import toast from "react-hot-toast";
 
-const CreateAppointment = ({ handleCloseModal, handlePatientModal }) => {
+const CreateAppointment = ({ handleCloseModal, handlePatientModal,fetchAppointment }) => {
   const API_URL = import.meta.env.VITE_API_BASE_URL;
 
   const {
@@ -66,7 +66,7 @@ const CreateAppointment = ({ handleCloseModal, handlePatientModal }) => {
         });
         reset();
         handleCloseModal(false)
-        //fetchPatient();
+        fetchAppointment();
       }      
     } catch (err) {
       toast.dismissAll();
@@ -74,7 +74,7 @@ const CreateAppointment = ({ handleCloseModal, handlePatientModal }) => {
         toast.error(err.response.data.message);
       } else {
         toast.error(err.message);
-        //reset();
+        reset();
       }
     }
   };
