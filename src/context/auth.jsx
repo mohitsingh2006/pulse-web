@@ -1,0 +1,51 @@
+import { createContext,useState} from "react";
+export const  AuthContext = createContext(null);
+
+export const AuthProvider = ({children}) => {
+    const userInfo = localStorage.getItem('pulse-user-info') ? JSON.parse(localStorage.getItem('pulse-user-info')) : null;
+
+
+    const [user,setUser] = useState(userInfo)
+
+    const login = (user) => {
+        setUser(user)
+    }
+
+    const logout = () => {
+        localStorage.removeItem('pulse-user-info');
+        setUser(null)   
+    }
+
+    const AuthCheck = () => {
+        const user = localStorage.getItem('pulse-user-info');
+        return user ? true : false;      
+    }
+
+    const Auth = (value = '') => {
+        const userInfo = localStorage.getItem('pulse-user-info');
+        const authUser = JSON.parse(userInfo)
+
+        if(value.length > 0){
+            return authUser[value];
+        }
+        return authUser
+    }
+    
+
+    return (
+        <AuthContext.Provider 
+            value={{
+                user,
+                AuthCheck,
+                Auth,
+                login,
+                logout
+            }}>
+            {children}
+        </AuthContext.Provider>
+    )
+}
+
+
+
+export default AuthContext;
