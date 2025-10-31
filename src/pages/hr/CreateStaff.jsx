@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import axiosInstance from "../../axiosInstance";
 import Select from "react-select";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import FormError from "../../components/FormError";
 
 const CreateStaff = () => {
@@ -32,7 +32,51 @@ const CreateStaff = () => {
   } = useForm({
     mode: "onChange",
   });
-  const onSubmit = () => {};
+
+
+  const onSubmit = async (data) => {
+      console.log(data);
+      try {
+        const toastId = toast.loading("Please wait...");
+
+        const formData = new FormData();
+
+        
+      Object.keys(data).forEach((key) => {
+        if (key === "Photo" && data.Photo) {
+          formData.append("Photo", data.Photo); 
+        } else if (key === "specialist" && Array.isArray(data.specialist)) {
+           formData.append(`specialist`, data.specialist[0].value);
+
+          data.specialist.forEach((item, index) => {
+            //formData.append(`specialist[${index}]`, item.value);            
+          });
+        } else {
+          formData.append(key, data[key]);
+        }
+      });
+
+    
+      const response = await axiosInstance.post(`${API_URL}staff/add`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
+      if (response.status === 201 || response.data.message) {
+         toast.success(response.data.message, {
+          id: toastId,
+        });
+        //reset();
+      }      
+    } catch (err) {
+      toast.dismissAll();
+      if (err.status === 400) {
+        toast.error(err.response.data.message);
+      } else {
+        toast.error(err.message);
+        //reset();
+      }
+    }
+  };
 
   const roleFetch = async () => {
     try {
@@ -106,8 +150,7 @@ const CreateStaff = () => {
                         className={`form-control bg-light ${
                           errors.staff_id && "is-invalid"
                         }`}
-                        placeholder="Auto-generated"
-                        disabled
+                        placeholder="Staff ID"
                         id="staff_id"
                         name="staff_id"
                         {...register("staff_id", {
@@ -137,7 +180,7 @@ const CreateStaff = () => {
                         <option value={""}>Select Role</option>
                         {roles.length > 0 &&
                           roles.map((role, index) => (
-                            <option key={index} value={role.id}>
+                            <option key={index} value={role.role_name}>
                               {role.role_name}
                             </option>
                           ))}
@@ -158,7 +201,7 @@ const CreateStaff = () => {
                         <option>Select Designation</option>
                         {designations.length > 0 &&
                           designations.map((data, index) => (
-                            <option key={index} value={data.id}>
+                            <option key={index} value={data.designation_name}>
                               {data.designation_name}
                             </option>
                           ))}
@@ -178,7 +221,7 @@ const CreateStaff = () => {
                         <option>Select Department</option>
                         {departments.length > 0 &&
                           departments.map((data, index) => (
-                            <option key={index} value={data.id}>
+                            <option key={index} value={data.department_name}>
                               {data.department_name}
                             </option>
                           ))}
@@ -186,19 +229,26 @@ const CreateStaff = () => {
                     </div>
                     <div className="col-md-6">
                       <label className="form-label">Specialist</label>
-                      <Select
-                        defaultValue={specialists[0]}
-                        isMulti
-                        name="specialists"
-                        options={specialists}
-                        className="basic-multi-select bg-light"
-                        classNamePrefix="select"
-                        placeholder="Select Specialist"
-                        id="specialists"
-                        {...register("specialists", {
-                          required: false,
-                        })}
-                      />
+                     <Controller
+                      name="specialist"
+                      control={control}
+                      rules={{
+                        required: false,
+                      }}
+                      render={({ field }) => (
+                        <Select
+                          {...field}
+                          isMulti
+                          options={specialists}
+                          placeholder="Select Specialist"
+                          classNamePrefix="select"
+                          className={`basic-multi-select bg-light ${
+                            errors.specialists ? "border border-danger rounded" : ""
+                          }`}
+                          onChange={(selected) => field.onChange(selected)}
+                        />
+                      )}
+                    />
                     </div>
                     <div className="col-md-3">
                       <label className="form-label">
@@ -212,7 +262,7 @@ const CreateStaff = () => {
                         }`}
                         placeholder="Enter first name"
                         name="first_name"
-                        id="mother_name"
+                        id="first_name"
                         {...register("first_name", {
                           required: "First Name is required.",
                         })}
@@ -227,6 +277,11 @@ const CreateStaff = () => {
                         type="text"
                         className="form-control bg-light"
                         placeholder="Enter last name"
+                        name="last_name"
+                        id="last_name"
+                        {...register("last_name", {
+                          required: "Last Name is required.",
+                        })}
                       />
                     </div>
                     <div className="col-md-3">
@@ -276,8 +331,8 @@ const CreateStaff = () => {
                         })}
                       >
                         <option value={""}>Select Gender</option>
-                        <option>Male</option>
-                        <option>Female</option>
+                        <option value={"Male"}>Male</option>
+                        <option value={"Female"}>Female</option>
                       </select>
                       {errors.gender && (
                         <FormError error={errors.gender.message} />
@@ -285,20 +340,36 @@ const CreateStaff = () => {
                     </div>
                     <div className="col-md-3">
                       <label className="form-label">Marital Status</label>
-                      <select className="form-select bg-light">
-                        <option>Select</option>
+                      <select 
+                        className="form-select bg-light"
+                        defaultValue={''}
+                        name="marital_status"
+                        id="marital_status"
+                        {...register("marital_status", {
+                          required: "Gender selection is required.",
+                        })}
+                        >
+                        <option value={''}>Select</option>
                         <option>Single</option>
                         <option>Married</option>
                       </select>
                     </div>
                     <div className="col-md-3">
                       <label className="form-label">Blood Group</label>
-                      <select className="form-select bg-light">
-                        <option>Select</option>
-                        <option>A+</option>
-                        <option>B+</option>
-                        <option>O+</option>
-                        <option>AB+</option>
+                      <select 
+                        className="form-select bg-light"
+                        defaultValue={""}
+                        name="blood_group"
+                        id="blood_group"
+                        {...register("blood_group", {
+                          required: "Gender selection is required.",
+                        })}
+                      >
+                        <option value={""}>Select</option>
+                        <option value={"A+"}>A+</option>
+                        <option value={"B+"}>B+</option>
+                        <option value={"O+"}>O+</option>
+                        <option value={"AB+"}>AB+</option>
                       </select>
                     </div>
                     <div className="col-md-3">
@@ -327,9 +398,9 @@ const CreateStaff = () => {
                       <input
                         type="date"
                         className="form-control bg-light"
-                        name="Joining_date"
-                        id="Joining_date"
-                        {...register("Joining_date", {
+                        name="date_of_joining"
+                        id="date_of_joining"
+                        {...register("date_of_joining", {
                           required: false,
                         })}
                       />
@@ -389,6 +460,11 @@ const CreateStaff = () => {
                         className="form-control bg-light"
                         rows="2"
                         placeholder="Enter current address"
+                        name="current_address"
+                        id="current_address"
+                        {...register("current_address", {
+                          required: false,
+                        })}
                       ></textarea>
                     </div>
                     <div className="col-md-6">
@@ -539,6 +615,7 @@ const CreateStaff = () => {
                   <div className="col-md-3">
                     <label className="form-label">Contract Type</label>
                     <select
+                      defaultValue={''}
                       className="form-select bg-light 1875rem"
                       name="contract_type"
                       id="contract_type"
@@ -546,7 +623,7 @@ const CreateStaff = () => {
                         required: false,
                       })}
                     >
-                      <option>Select</option>
+                      <option value={''}>Select</option>
                       <option>Permanent</option>
                       <option>Contract</option>
                     </select>
@@ -600,8 +677,8 @@ const CreateStaff = () => {
                       type="text"
                       className="form-control bg-light"
                       name="work_location"
-                      id="LinkedIn_url"
-                      {...register("LinkedIn_url", {
+                      id="linkedin_url"
+                      {...register("linkedin_url", {
                         required: false,
                       })}
                     />
@@ -631,10 +708,7 @@ const CreateStaff = () => {
                       type="file"
                       className="form-control bg-light"
                       name="resume"
-                      id="Resume"
-                      {...register("resume", {
-                        required: false,
-                      })}
+                      id="resume"                     
                     />
                   </div>
                   <div className="col-md-6">
@@ -643,10 +717,7 @@ const CreateStaff = () => {
                       type="file"
                       className="form-control bg-light"
                       name="joining_letter"
-                      id="joining_letter"
-                      {...register("joining_letter", {
-                        required: false,
-                      })}
+                      id="joining_letter"                    
                     />
                   </div>
                   <div className="col-md-6">
@@ -658,11 +729,8 @@ const CreateStaff = () => {
                     <input
                       type="file"
                       className="form-control bg-light"
-                      name="other_documents"
-                      id="other_documents"
-                      {...register("other_documents", {
-                        required: false,
-                      })}
+                      name="other_document"
+                      id="other_document"
                     />
                   </div>
                 </div>
