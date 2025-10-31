@@ -1,4 +1,3 @@
-
 import { FaCheckDouble } from "react-icons/fa6";
 import Layout from "../../_layout";
 import React, { useEffect, useRef, useState } from "react";
@@ -19,12 +18,10 @@ const CreateStaff = () => {
     pageLoading: true,
   });
 
-
   const role = [
     { id: 1, role_name: "Admin" },
     { id: 2, role_name: "HR" },
-  ];  
-
+  ];
 
   const {
     register,
@@ -145,9 +142,7 @@ const CreateStaff = () => {
                             </option>
                           ))}
                       </select>
-                        {errors.role && (
-                        <FormError error={errors.role.message} />
-                      )}
+                      {errors.role && <FormError error={errors.role.message} />}
                     </div>
 
                     <div className="col-md-3">
@@ -172,8 +167,9 @@ const CreateStaff = () => {
 
                     <div className="col-md-3">
                       <label className="form-label">Department</label>
-                      <select className="form-select bg-light"
-                       id="department"
+                      <select
+                        className="form-select bg-light"
+                        id="department"
                         name="department"
                         {...register("department", {
                           required: false,
@@ -212,18 +208,18 @@ const CreateStaff = () => {
                       <input
                         type="text"
                         className={`form-control bg-light ${
-                            errors.first_name && "is-invalid"
+                          errors.first_name && "is-invalid"
                         }`}
                         placeholder="Enter first name"
                         name="first_name"
                         id="mother_name"
                         {...register("first_name", {
-                        required: "First Name is required.",
-                    })}
+                          required: "First Name is required.",
+                        })}
                       />
-                     {errors.first_name && (
+                      {errors.first_name && (
                         <FormError error={errors.first_name.message} />
-                     )}
+                      )}
                     </div>
                     <div className="col-md-3">
                       <label className="form-label">Last Name</label>
@@ -240,20 +236,15 @@ const CreateStaff = () => {
                       </label>
                       <input
                         type="text"
-                        className={`form-control bg-light ${
-                             errors.father_name && "is-invalid"
-                        }`}
+                        className="form-control bg-light"
                         placeholder="Enter father name"
                         name="father_name"
                         id="father_name"
                         defaultValue={""}
                         {...register("father_name", {
-                        required: "Father Name is required.",
+                          required: false,
                         })}
                       />
-                       {errors.father_name && (
-                        <FormError error={errors.father_name.message} />
-                     )}
                     </div>
                     <div className="col-md-3">
                       <label className="form-label">Mother Name</label>
@@ -264,7 +255,7 @@ const CreateStaff = () => {
                         name="mother_name"
                         id="mother_name"
                         {...register("mother_name", {
-                        required: "Mother name is required.",
+                          required: "Mother name is required.",
                         })}
                       />
                     </div>
@@ -275,22 +266,22 @@ const CreateStaff = () => {
                       </label>
                       <select
                         className={`form-select bg-light ${
-                            errors.gender && "is-invalid"
+                          errors.gender && "is-invalid"
                         }`}
                         name="gender"
                         id="gender"
                         defaultValue={""}
                         {...register("gender", {
-                        required: "Gender selection is required.",
+                          required: "Gender selection is required.",
                         })}
-                        >
+                      >
                         <option value={""}>Select Gender</option>
                         <option>Male</option>
                         <option>Female</option>
                       </select>
-                        {errors.gender && (
-                            <FormError error={errors.gender.message} />
-                        )}
+                      {errors.gender && (
+                        <FormError error={errors.gender.message} />
+                      )}
                     </div>
                     <div className="col-md-3">
                       <label className="form-label">Marital Status</label>
@@ -302,7 +293,7 @@ const CreateStaff = () => {
                     </div>
                     <div className="col-md-3">
                       <label className="form-label">Blood Group</label>
-                      <select className="form-select">
+                      <select className="form-select bg-light">
                         <option>Select</option>
                         <option>A+</option>
                         <option>B+</option>
@@ -315,27 +306,31 @@ const CreateStaff = () => {
                         Date of Birth
                         <span>*</span>
                       </label>
-                      <input type="date" className={`form-control bg-light ${
-                        errors.date_of_birth && "is-invalid"
-                      }`}
+                      <input
+                        type="date"
+                        className={`form-control bg-light ${
+                          errors.date_of_birth && "is-invalid"
+                        }`}
                         name="date_of_birth"
                         id="date_of_birth"
                         {...register("date_of_birth", {
-                        required: "Date Of Birth is required.",
+                          required: "Date Of Birth is required.",
                         })}
                       />
-                       {errors.date_of_birth && (
-                            <FormError error={errors.date_of_birth.message} />
-                        )}
+                      {errors.date_of_birth && (
+                        <FormError error={errors.date_of_birth.message} />
+                      )}
                     </div>
 
                     <div className="col-md-3">
                       <label className="form-label">Date of Joining</label>
-                      <input type="date" className="form-control bg-light" 
+                      <input
+                        type="date"
+                        className="form-control bg-light"
                         name="Joining_date"
                         id="Joining_date"
                         {...register("Joining_date", {
-                        required: false,
+                          required: false,
                         })}
                       />
                     </div>
@@ -348,7 +343,7 @@ const CreateStaff = () => {
                         name="phone"
                         id="phone"
                         {...register("phone", {
-                        required: false,
+                          required: false,
                         })}
                       />
                     </div>
@@ -361,7 +356,7 @@ const CreateStaff = () => {
                         name="emergency_contact"
                         id="emergency_contact"
                         {...register("emergency_contact", {
-                        required: false,
+                          required: false,
                         })}
                       />
                     </div>
@@ -370,20 +365,23 @@ const CreateStaff = () => {
                       <input
                         type="email"
                         className={`form-control bg-light ${
-                            errors.email && "is-invalid"
+                          errors.email && "is-invalid"
                         }`}
                         placeholder="Enter email"
                         id="email"
                         name="email"
                         {...register("email", {
-                        required: "Email is required.",
-                        pattern: {
-                        value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                        message: "Please enter a valid email address",
-                        },
+                          required: "Email is required.",
+                          pattern: {
+                            value:
+                              /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                            message: "Please enter a valid email address",
+                          },
                         })}
                       />
-                      {errors.email && <FormError error={errors.email.message} />}
+                      {errors.email && (
+                        <FormError error={errors.email.message} />
+                      )}
                     </div>
                     <div className="col-md-6">
                       <label className="form-label">Current Address</label>
@@ -391,7 +389,6 @@ const CreateStaff = () => {
                         className="form-control bg-light"
                         rows="2"
                         placeholder="Enter current address"
-                        
                       ></textarea>
                     </div>
                     <div className="col-md-6">
@@ -400,10 +397,10 @@ const CreateStaff = () => {
                         className="form-control bg-light"
                         rows="2"
                         placeholder="Enter permanent address"
-                         name="permanent_address"
+                        name="permanent_address"
                         id="permanent_address"
                         {...register("permanent_address", {
-                        required: false,
+                          required: false,
                         })}
                       ></textarea>
                     </div>
@@ -416,7 +413,7 @@ const CreateStaff = () => {
                         name="qualification"
                         id="qualification"
                         {...register("qualification", {
-                        required: false,
+                          required: false,
                         })}
                       />
                     </div>
@@ -429,7 +426,7 @@ const CreateStaff = () => {
                         name="work_experience"
                         id="work_experience"
                         {...register("work_experience", {
-                        required: false,
+                          required: false,
                         })}
                       />
                     </div>
@@ -442,7 +439,7 @@ const CreateStaff = () => {
                         name="specialization"
                         id="specialization"
                         {...register("specialization", {
-                        required: false,
+                          required: false,
                         })}
                       />
                     </div>
@@ -455,17 +452,63 @@ const CreateStaff = () => {
                         name="note"
                         id="note"
                         {...register("note", {
-                        required: false,
+                          required: false,
                         })}
                       ></textarea>
                     </div>
+                    
                     <div className="col-md-3">
                       <label className="form-label">Photo</label>
-                      <input type="file" className="form-control bg-light" 
+                      <input
+                        type="file"
+                        className="form-control bg-light"
                         name="Photo"
                         id="Photo"
                         {...register("Photo", {
-                        required: false,
+                          required: false,
+                        })}
+                      />
+                    </div>
+                    <div className="col-md-4">
+                      <label className="form-label">Pan Number</label>
+                      <input
+                        className="form-control bg-light"
+                        placeholder="Write a Pan Number"
+                        type="text"
+                        name="pan_number"
+                        id="pan_number"
+                        {...register("pan_number", {
+                          required: false,
+                        })}
+                      />
+                    </div>
+                    <div className="col-md-4">
+                      <label className="form-label">
+                        National Identification Number
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control bg-light"
+                        placeholder="Write a Identification Number"
+                        name="identification_number"
+                        id="identification_number"
+                        {...register("identification_number", {
+                          required: false,
+                        })}
+                      />
+                    </div>
+                    <div className="col-md-4">
+                      <label className="form-label">
+                        Local Identification Number
+                      </label>
+                      <input
+                      type="text"
+                        className="form-control bg-light"
+                        placeholder="Write a Local Identification Number"
+                        name="local_identification_number"
+                        id="local_identification_number"
+                        {...register("local_identification_number", {
+                          required: false,
                         })}
                       />
                     </div>
@@ -479,12 +522,14 @@ const CreateStaff = () => {
                 <div className="row">
                   <div className="col-md-3">
                     <label className="form-label">EPF No</label>
-                    <input type="text" className="form-control bg-light" 
-                        name="epf_no"
-                        id="epf_no"
-                        {...register("epf_no", {
+                    <input
+                      type="text"
+                      className="form-control bg-light"
+                      name="epf_no"
+                      id="epf_no"
+                      {...register("epf_no", {
                         required: false,
-                        })}
+                      })}
                     />
                   </div>
                   <div className="col-md-3">
@@ -493,12 +538,13 @@ const CreateStaff = () => {
                   </div>
                   <div className="col-md-3">
                     <label className="form-label">Contract Type</label>
-                    <select className="form-select bg-light 1875rem" 
-                        name="contract_type"
-                        id="contract_type"
-                        {...register("contract_type", {
+                    <select
+                      className="form-select bg-light 1875rem"
+                      name="contract_type"
+                      id="contract_type"
+                      {...register("contract_type", {
                         required: false,
-                        })}
+                      })}
                     >
                       <option>Select</option>
                       <option>Permanent</option>
@@ -507,12 +553,14 @@ const CreateStaff = () => {
                   </div>
                   <div className="col-md-3">
                     <label className="form-label">Work Location</label>
-                    <input type="text" className="form-control bg-light" 
-                        name="work_location"
-                        id="work_location"
-                        {...register("work_location", {
+                    <input
+                      type="text"
+                      className="form-control bg-light"
+                      name="work_location"
+                      id="work_location"
+                      {...register("work_location", {
                         required: false,
-                        })}
+                      })}
                     />
                   </div>
                 </div>
@@ -524,42 +572,50 @@ const CreateStaff = () => {
                 <div className="row g-3 ">
                   <div className="col-md-3">
                     <label className="form-label">Facebook URL</label>
-                    <input type="text" className="form-control bg-light"
-                        name="facebook_url"
-                        id="facebook_url"
-                        {...register("facebook_url", {
+                    <input
+                      type="text"
+                      className="form-control bg-light"
+                      name="facebook_url"
+                      id="facebook_url"
+                      {...register("facebook_url", {
                         required: false,
-                        })}
+                      })}
                     />
                   </div>
                   <div className="col-md-3">
                     <label className="form-label">Twitter URL</label>
-                    <input type="text" className="form-control bg-light"
-                    name="twitter_url"
-                        id="twitter_url"
-                        {...register("twitter_url", {
+                    <input
+                      type="text"
+                      className="form-control bg-light"
+                      name="twitter_url"
+                      id="twitter_url"
+                      {...register("twitter_url", {
                         required: false,
-                        })}
+                      })}
                     />
                   </div>
                   <div className="col-md-3">
                     <label className="form-label">LinkedIn URL</label>
-                    <input type="text" className="form-control bg-light"
-                    name="work_location"
-                        id="LinkedIn_url"
-                        {...register("LinkedIn_url", {
+                    <input
+                      type="text"
+                      className="form-control bg-light"
+                      name="work_location"
+                      id="LinkedIn_url"
+                      {...register("LinkedIn_url", {
                         required: false,
-                        })}
+                      })}
                     />
                   </div>
                   <div className="col-md-3">
                     <label className="form-label">Instagram URL</label>
-                    <input type="text" className="form-control bg-light"
-                    name="instagram_url"
-                        id="instagram_url"
-                        {...register("instagram_url", {
+                    <input
+                      type="text"
+                      className="form-control bg-light"
+                      name="instagram_url"
+                      id="instagram_url"
+                      {...register("instagram_url", {
                         required: false,
-                        })}
+                      })}
                     />
                   </div>
                 </div>
@@ -571,22 +627,26 @@ const CreateStaff = () => {
                 <div className="row g-3">
                   <div className="col-md-6">
                     <label className="form-label">Resume</label>
-                    <input type="file" className="form-control bg-light"
-                    name="resume"
-                        id="Resume"
-                        {...register("resume", {
+                    <input
+                      type="file"
+                      className="form-control bg-light"
+                      name="resume"
+                      id="Resume"
+                      {...register("resume", {
                         required: false,
-                        })}
+                      })}
                     />
                   </div>
                   <div className="col-md-6">
                     <label className="form-label">Joining Letter</label>
-                    <input type="file" className="form-control bg-light"
-                        name="joining_letter"
-                        id="joining_letter"
-                        {...register("joining_letter", {
+                    <input
+                      type="file"
+                      className="form-control bg-light"
+                      name="joining_letter"
+                      id="joining_letter"
+                      {...register("joining_letter", {
                         required: false,
-                        })}
+                      })}
                     />
                   </div>
                   <div className="col-md-6">
@@ -595,12 +655,14 @@ const CreateStaff = () => {
                   </div>
                   <div className="col-md-6">
                     <label className="form-label">Other Documents</label>
-                    <input type="file" className="form-control bg-light" 
-                        name="other_documents"
-                        id="other_documents"
-                        {...register("other_documents", {
+                    <input
+                      type="file"
+                      className="form-control bg-light"
+                      name="other_documents"
+                      id="other_documents"
+                      {...register("other_documents", {
                         required: false,
-                        })}
+                      })}
                     />
                   </div>
                 </div>
