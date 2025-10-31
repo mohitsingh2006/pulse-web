@@ -60,8 +60,6 @@ const StaffAttendance = () => {
   // 1. Initialize the Bootstrap Modal instance when the component mounts
   useEffect(() => {
     
-
-
     if (leaveModalRef.current) {
       leaveModalInstance.current = new Modal(leaveModalRef.current, {});
     }

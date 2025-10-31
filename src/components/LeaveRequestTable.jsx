@@ -1,8 +1,37 @@
-import React from "react";
+
 import { FaTrashAlt, FaEllipsisV } from "react-icons/fa";
-import { FaEllipsis } from "react-icons/fa6";
+import React, { useEffect, useRef, useState } from "react";
+import { IoMenu } from "react-icons/io5";
+import { Modal } from "bootstrap";
+import CreateDetailsModal from "./CreateDetailsModal";
 
 const LeaveRequestTable = ({ data }) => {
+
+  // Menu Modal
+  const [showDetailModal, setShowDetailModal] = useState(false);
+  const detailModalRef = useRef(null);
+  const detailModalInstance = useRef(null);
+
+
+    useEffect(() => {
+      if (detailModalInstance.current) {
+        if (showDetailModal) {
+          detailModalInstance.current.show();
+        } else {
+          detailModalInstance.current.hide();
+        }
+      }
+    }, [showDetailModal]);
+  
+    // 1. Initialize the Bootstrap Modal instance when the component mounts
+    useEffect(() => {
+      
+      if (detailModalRef.current) {
+        detailModalInstance.current = new Modal(detailModalRef.current, {});
+      }
+  
+    }, []);
+
   // Helper to get badge styling based on status
   const getStatusBadge = (status) => {
     const lowerStatus = status.toLowerCase();
@@ -52,11 +81,13 @@ const LeaveRequestTable = ({ data }) => {
                 
                 <td>
                   <div className="d-flex justify-content-center gap-2">
+                    <button className="btn btn-sm btn-outline-secondary" title="More Options"
+                     onClick={() => {setShowDetailModal(true);}}
+                    >
+                      <IoMenu />
+                    </button>
                     <button className="btn btn-sm btn-outline-danger" title="Delete">
                       <FaTrashAlt />
-                    </button>
-                    <button className="btn btn-sm btn-outline-secondary" title="More Options">
-                      <FaEllipsis />
                     </button>
                   </div>
                 </td>
@@ -71,6 +102,21 @@ const LeaveRequestTable = ({ data }) => {
           )}
         </tbody>
       </table>
+
+          <div
+            className="modal fade create-appointment-modal"
+            ref={detailModalRef}
+            onHide={() => setShowDetailModal(false)}
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabIndex="-1"
+          >
+            <div className="modal-dialog modal-xl">
+              <CreateDetailsModal 
+                handleCloseModal={() => setShowDetailModal(false)}
+              />
+            </div>
+          </div>
     </div>
   );
 };

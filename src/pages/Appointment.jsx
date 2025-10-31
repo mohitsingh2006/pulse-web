@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { Modal, Dropdown } from "bootstrap";
-
 import { LuUser } from "react-icons/lu";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { CiSearch } from "react-icons/ci";

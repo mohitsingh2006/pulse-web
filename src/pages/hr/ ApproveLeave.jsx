@@ -159,7 +159,8 @@ const ApproveLeave = () => {
                                   >
                                     <IoMenu />
                                   </button>
-                                  <button className="btn btn-sm btn-outline-danger" title="Delete">
+                                  <button className="btn btn-sm btn-outline-danger" title="Delete" 
+                                  >
                                     <FaTrashAlt />
                                   </button>
                               </div>

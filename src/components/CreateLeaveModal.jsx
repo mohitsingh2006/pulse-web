@@ -1,6 +1,8 @@
 import React from "react";
+import DatePickerComponent from "./DatePickerComponent";
 
 const CreateLeaveModal = ({ handleCloseModal }) => {
+  
   return (
     <form className="form-outer">
       <div className="modal-content">
@@ -20,38 +22,36 @@ const CreateLeaveModal = ({ handleCloseModal }) => {
               <div className="row">
                 <div className="mb-4">
                   <label className="form-label">
-                   Leave Type
+                   Apply Datekkhkhkk
                     <span>*</span>
                   </label>
-                  <input
+                  <DatePickerComponent
                     className="form-select bg-light"
                     aria-label="Default select example"
                     defaultValue=""
                     name="gender"
                     type="date"
-                  >
-                  </input>
+                  />
                 </div>
                 <div  className="mb-4">
                   <label className="form-label">
-                    Apply Date
+                    Leave From Date
                     <span>*</span>
                   </label>
-                  <input
+                  <DatePickerComponent
                     className="form-select bg-light"
                     aria-label="Default select example"
                     defaultValue=""
-                    name="gender"
+                    name="date"
                     type="date"
-                  >
-                  </input>
+                  />
                 </div>
               </div>
             </div>
             <div className="col-12 col-lg-6">
               <div  className="mb-4">
                 <label className="form-label">
-                  Leave From Date
+                  Leave Type
                   <span>*</span>
                 </label>
                 <select
@@ -76,14 +76,14 @@ const CreateLeaveModal = ({ handleCloseModal }) => {
                   Leave To Date
                   <span>*</span>
                 </label>
-                <input
+                <DatePickerComponent
                   className="form-select bg-light"
                   aria-label="Default select example"
                   defaultValue=""
                   name="date"
                   type="date"
-                >
-                </input>
+                />
+                
               </div>
             </div>
             <div className="mb-4">

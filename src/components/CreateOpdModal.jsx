@@ -112,11 +112,11 @@ function CreateOpdModal({ handleCloseModal,handlePatientModal }) {
           </div>
         </form>
       </div>
-      <div className="modal-footer">
+      {/* <div className="modal-footer">
         <button type="button" className="btn btn-primary shadow-none">
           Create Opd
         </button>
-      </div>
+      </div> */}
     </div>
   )
 }

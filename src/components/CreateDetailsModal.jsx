@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const CreateMenuModal = ({ handleCloseModal }) => {
-  console.log(handleCloseModal);
-  return (
+const CreateDetailsModal = ({handleCloseModal}) => {
+    return(
+
     <form className="form-outer">
       <div className="modal-content">
         <div className="modal-header py-2">
@@ -17,7 +17,7 @@ const CreateMenuModal = ({ handleCloseModal }) => {
           ></button>
         </div>
         <div className="modal-body">
-          <div class="row mb-3">
+           <div class="row mb-3">
             <div class="col-md-6">
               <div className="d-flex justify-content-between">
                 <div className="d-inline add-datail">Name:</div>{" "}
@@ -55,7 +55,7 @@ const CreateMenuModal = ({ handleCloseModal }) => {
               </div>
             </div>
           </div>
-          <div className="row mb-3">
+          {/* <div className="row mb-3">
             <div className="col-12 col-lg-6">
               <div className="d-flex justify-content-between">
                   <div className="add-datail mt-2">Status:</div>
@@ -96,38 +96,24 @@ const CreateMenuModal = ({ handleCloseModal }) => {
               </div>
               </div>            
             </div>
-          </div>
+          </div> */}
           <div className="row mb-3">
             <div className="col-12 col-lg-6">
               <div className="d-flex justify-content-between">
                   <div className="add-datail">Download:</div>
                   <div>
-                    <Link to="" className="ms-2 text-decoration-none text-primary">
+                    {/* <Link to="" className="ms-2 text-decoration-none text-primary">
                       Download File
-                    </Link>
+                    </Link> */}
                   </div>
               </div>
             </div>
           </div>
-          <div className="row mb-3">
-            <div class="col-md-12">
-              <label class="form-label fw-bold">
-                Note (Only display for admin)
-              </label>
-              <textarea
-                class="form-control"
-                rows="2"
-                placeholder="Add note here..."
-              ></textarea>
-            </div>
-          </div>
-          <div className="save-btn text-end">
-            <button className="btn btn-primary">Save</button>
-          </div>
+        
+         
         </div>
       </div>
     </form>
-  );
-};
-
-export default CreateMenuModal;
+    )
+}
+export default CreateDetailsModal

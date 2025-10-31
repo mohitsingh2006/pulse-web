@@ -400,7 +400,9 @@ span.flatpickr-weekday{
 .modal .modal-dialog .modal-body .save-btn button{
     letter-spacing: 1px;
 }
-
+.modal .modal-dialog .modal-body .add-datail{
+    font-weight: bold;
+}
 
 .screen-overlay{
     position: absolute;

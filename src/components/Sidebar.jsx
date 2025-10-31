@@ -252,7 +252,7 @@ const Sidebar = ({ isCollapsed }) => {
           </Link>
         </div>
         <div className="mb-2">
-          <Link to="#" className="nav-link">
+          <Link to="/ipd-patient" className="nav-link">
             <svg
               className="me-3"
               width="24"

@@ -6,6 +6,7 @@ import { Controller, useForm } from "react-hook-form";
 import FormError from "./FormError";
 import DatePicker from "react-datepicker";
 import toast from "react-hot-toast";
+import React from "react";
 
 const CreateAppointment = ({ handleCloseModal, handlePatientModal,fetchAppointment }) => {
   const API_URL = import.meta.env.VITE_API_BASE_URL;
@@ -145,7 +146,7 @@ const CreateAppointment = ({ handleCloseModal, handlePatientModal,fetchAppointme
                       defaultValue=""
                       name="doctor_id"
                       id="doctor_id"
-                      {...register("doctor_id", {
+                      {...register("doctor_id",{
                         required: "Doctor field is requried.",
                       })}
                     >

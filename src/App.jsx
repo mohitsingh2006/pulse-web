@@ -19,6 +19,7 @@ import StaffAttendance from './pages/hr/StaffAttendance';
 import Payroll from './pages/hr/Payroll';
 import LeaveRequest from './pages/hr/LeaveRequest';
 import ApproveLeave from './pages/hr/ ApproveLeave';
+import IpdPatient from './pages/hr/IpdPatient';
 
 function App() {
   return (
@@ -95,8 +96,13 @@ function App() {
           }
           />
 
-           <Route path="/approveleave" element={
+          <Route path="/approveleave" element={
             <ApproveLeave />
+          }
+          />
+
+          <Route path="/ipd-patient" element={
+            <IpdPatient />
           }
           />
 

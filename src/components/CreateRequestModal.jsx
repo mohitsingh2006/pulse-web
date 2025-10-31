@@ -1,4 +1,5 @@
 import React from "react";
+import DatePickerComponent from "./DatePickerComponent";
 
 const CreateRequestModal = ({ handleCloseModal }) => {
   return (
@@ -46,26 +47,26 @@ const CreateRequestModal = ({ handleCloseModal }) => {
                   Apply Date
                   <span>*</span>
                 </label>
-                <input
+                <DatePickerComponent
                   className="form-select bg-light"
                   aria-label="Default select example"
                   defaultValue=""
                   name="date"
                   type="date"
-                ></input>
+                />
               </div>
               <div className="mb-4">
                 <label className="form-label">
                   Leave From Date
                   <span>*</span>
                 </label>
-                <input
+                <DatePickerComponent
                   className="form-select bg-light"
                   aria-label="Default select example"
                   defaultValue=""
                   name="date"
                   type="date"
-                ></input>
+                />
               </div>
               <div className="mb-4">
                 <label className="form-label">Reason</label>
@@ -133,14 +134,14 @@ const CreateRequestModal = ({ handleCloseModal }) => {
                   Leave To Date
                   <span>*</span>
                 </label>
-                <input
+                <DatePickerComponent
                   className="form-select bg-light"
                   aria-label="Default select example"
                   defaultValue=""
                   name="date"
                   type="date"
-                >
-                </input>
+                />
+
               </div>
               <div className="mb-4">
                 <label className="form-label">Note</label>
