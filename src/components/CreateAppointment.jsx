@@ -1,12 +1,11 @@
 import AsyncSelect from "react-select/async";
 import debounce from "lodash.debounce";
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 import axiosInstance from "../axiosInstance";
 import { Controller, useForm } from "react-hook-form";
 import FormError from "./FormError";
 import DatePicker from "react-datepicker";
 import toast from "react-hot-toast";
-import React from "react";
 
 const CreateAppointment = ({ handleCloseModal, handlePatientModal,fetchAppointment }) => {
   const API_URL = import.meta.env.VITE_API_BASE_URL;

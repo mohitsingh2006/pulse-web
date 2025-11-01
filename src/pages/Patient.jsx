@@ -42,7 +42,6 @@ const Patient = () => {
   };
 
 
-
   useEffect(() => {
     if (modalInstance.current) {
       if (showCreatePatientModal) {

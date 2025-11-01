@@ -1,9 +1,42 @@
 import { GoPlus } from "react-icons/go";
 import DatePickerComponent from "./DatePickerComponent";
 import AsyncSelect from "react-select/async";
+import debounce from "lodash.debounce";
+import { useCallback } from "react";
+import axiosInstance from "../axiosInstance";
 
-const CreateIdpModal = (handleCloseModal) => {
-  const debouncedLoadOptions = () => {};
+const CreateIdpModal = ({ handleCloseModal, handlePatientModal }) => {
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
+
+  // API function (fetch data when called)
+  const fetchPatientData = async (inputValue) => {
+    if (inputValue.length < 2) return []; // only trigger after 2 characters
+
+    try {
+      const response = await axiosInstance.get(
+        `${API_URL}patients/search_patients?name=${inputValue}`
+      );
+      if (response.status === 200) {
+        return response.data.data.map((item) => ({
+          value: item.id,
+          label: item.name,
+        }));
+      }
+    } catch (error) {
+      console.error("Error fetching:", error);
+      return [];
+    }
+  };
+
+  // Debounce the API call by 500ms
+  const debouncedLoadOptions = useCallback(
+    debounce((inputValue, callback) => {
+      fetchPatientData(inputValue).then(callback);
+    }, 500),
+    []
+  );
+
+
   return (
     <form className="form-outer">
       <div className="modal-content">
@@ -21,7 +54,7 @@ const CreateIdpModal = (handleCloseModal) => {
               <button
                 type="button"
                 class="btn btn-secondary shadow-none py-2 px-3"
-                onClick={handleCloseModal}
+                onClick={handlePatientModal}
               >
                 <GoPlus size={22} />
                 Add Paient

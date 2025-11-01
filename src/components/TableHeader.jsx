@@ -6,9 +6,7 @@ const TableHeader = ({
   primaryBtnText,
   primaryBtnClick,
   secontryBtnText,
-  secontryBtnClick ,
-  addClick,
-
+  secontryBtnClick 
 }) => {
   return (
     <div className="table-header d-flex align-items-center justify-content-between">
@@ -22,7 +20,7 @@ const TableHeader = ({
       {(primaryBtnText || secontryBtnText) &&
         <div className="d-flex gap-2">
             {secontryBtnText &&
-                <Link to={addClick} className="btn btn-secondary shadow-none" onClick={secontryBtnClick}>{secontryBtnText}</Link>
+                <button className="btn btn-secondary shadow-none" onClick={secontryBtnClick}>{secontryBtnText}</button>
             }
             {primaryBtnText &&
                <button className="btn btn-primary shadow-none" onClick={primaryBtnClick}>{primaryBtnText}</button> 
