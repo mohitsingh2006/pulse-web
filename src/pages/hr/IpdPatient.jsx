@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import CreateIdpModal from "../../components/CreateIdpModal"
 import React, { useEffect, useRef, useState } from "react";
 import { Modal } from "bootstrap";
+import CreatePatient from "../../components/CreatePatient"
 
 const IpdPatient = () => {
 
@@ -12,11 +13,10 @@ const [showCreateIdpModal, setShowCreateIdpModal] = useState(false);
   const CreateIdpModalRef = useRef(null);
   const CreateIdpModalInstance = useRef(null);
 
-
     useEffect(() => {
       if (CreateIdpModalInstance.current) {
         if (showCreateIdpModal) {
-          detailModalInstance.current.show();
+          CreateIdpModalInstance.current.show();
         } else {
           CreateIdpModalInstance.current.hide();
         }
@@ -43,7 +43,8 @@ const [showCreateIdpModal, setShowCreateIdpModal] = useState(false);
                             primaryBtnText={"Add Patient"}
                             primaryBtnClick={() => setShowCreateIdpModal(true)}
                             secontryBtnText={"Discharged Patient"}
-                            secontryBtnClick={() => console.log("click secondry btn")}
+                            secontryBtnClick={() => ("click secondry btn")}
+                            
                         />
                     </div>
                     <div className="mt-4">
@@ -60,7 +61,6 @@ const [showCreateIdpModal, setShowCreateIdpModal] = useState(false);
                                 <th scope="col">Is Antenatal</th>
                                 <th scope="col">Previous Medical Issue</th>
                                 <th scope="col">Credit Limit ($)</th>
-
                                 </tr>
                             </thead>
                             <tbody>
@@ -241,7 +241,7 @@ const [showCreateIdpModal, setShowCreateIdpModal] = useState(false);
             <div
             className="modal fade create-appointment-modal"
             ref={CreateIdpModalRef}
-            onHide={() => setShowDetailModal(false)}
+            onHide={() => setShowCreateIdpModal(false)}
             data-bs-backdrop="static"
             data-bs-keyboard="false"
             tabIndex="-1"

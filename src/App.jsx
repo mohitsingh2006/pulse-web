@@ -20,6 +20,7 @@ import Payroll from './pages/hr/Payroll';
 import LeaveRequest from './pages/hr/LeaveRequest';
 import ApproveLeave from './pages/hr/ ApproveLeave';
 import IpdPatient from './pages/hr/IpdPatient';
+import DischargedPatient from './pages/hr/DischargedPatient';
 
 function App() {
   return (
@@ -105,7 +106,10 @@ function App() {
             <IpdPatient />
           }
           />
-
+          <Route path="/discharged-patient" element={
+            <DischargedPatient />
+          }
+          />
         </Routes>
         
     </BrowserRouter>

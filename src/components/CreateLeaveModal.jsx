@@ -69,7 +69,6 @@ const CreateLeaveModal = ({ handleCloseModal }) => {
                   <option value="">Paternity Leave. (10)</option>
                   <option value="">Fever Leave (15)</option>
                 </select>
-                  
               </div>
               <div>
                 <label className="form-label">

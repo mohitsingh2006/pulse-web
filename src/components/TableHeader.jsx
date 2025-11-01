@@ -1,4 +1,15 @@
-const TableHeader = ({heading,shortDes,primaryBtnText,primaryBtnClick,secontryBtnText,secontryBtnClick}) => {
+import { Link } from "react-router-dom";
+
+const TableHeader = ({
+  heading,
+  shortDes,
+  primaryBtnText,
+  primaryBtnClick,
+  secontryBtnText,
+  secontryBtnClick ,
+  addClick,
+
+}) => {
   return (
     <div className="table-header d-flex align-items-center justify-content-between">
       <div>
@@ -11,7 +22,7 @@ const TableHeader = ({heading,shortDes,primaryBtnText,primaryBtnClick,secontryBt
       {(primaryBtnText || secontryBtnText) &&
         <div className="d-flex gap-2">
             {secontryBtnText &&
-                <button className="btn btn-secondary shadow-none" onClick={secontryBtnClick}>{secontryBtnText}</button>
+                <Link to={addClick} className="btn btn-secondary shadow-none" onClick={secontryBtnClick}>{secontryBtnText}</Link>
             }
             {primaryBtnText &&
                <button className="btn btn-primary shadow-none" onClick={primaryBtnClick}>{primaryBtnText}</button> 
