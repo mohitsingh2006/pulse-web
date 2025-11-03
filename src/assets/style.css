@@ -285,9 +285,9 @@ span.flatpickr-weekday{
 }
 /* Modal styling */
 
-.appointment-page .nav-pills-outer{
-     border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
+.ipd-main-page .nav-pills-outer{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 .appointment-page .nav-pills .nav-item .nav-link{
     color: #979393;
@@ -303,6 +303,8 @@ span.flatpickr-weekday{
 .appointment-page .nav-pills .nav-item:first-child .nav-link{
     border-top-left-radius: 10px;
 }
+
+
 .appointment-page .form-outer .form-control{
     resize: none;
 }
@@ -417,4 +419,41 @@ span.flatpickr-weekday{
 /* Tab Styling */
 .overview-tab .tab-header h4{
     
+}
+
+
+
+
+
+.ipd-main-page .nav-pills-outer{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    overflow-x: hidden;            
+    outline: none;  
+}
+.ipd-main-page .nav-pills {
+      display: flex;
+    margin: 0;
+    list-style: none;
+    white-space: nowrap;
+    transition: all .18s ease;
+    overflow-x: auto;     
+    -webkit-overflow-scrolling: touch;
+}
+.ipd-main-page .nav-pills .nav-item .nav-link{
+    color: #979393;
+    border-radius: 0px;
+    font-size: 16px;
+    padding: 15px 25px;
+
+  
+    
+}
+.ipd-main-page .nav-pills .nav-item .active{
+    background-color: #fee2e2;
+    color: var(--primary-color);
+}
+.ipd-main-page .nav-pills .nav-item:first-child .nav-link{
+    border-top-left-radius: 10px;
 }
