@@ -11,7 +11,7 @@ const DischargedPatient = () => {
         <div className="row mt-5">
           <div className="col-12">
             <div className="bg-white graph-card p-4 mb-4 ">
-              <TableHeader heading={"IPD Discharged Patien"} />
+              <TableHeader heading={"IPD Discharged Patient"} />
             </div>
             <div className="col-12 col-lg-6 col-xl-4">
               <div className="mb-3 d-flex gap-3 search-box">

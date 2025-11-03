@@ -93,7 +93,7 @@ const IpdPatient = () => {
                                             </div>
                                         </td>
                                         <td>
-                                            <Link to="#">IPDN112</Link>
+                                            <Link to="/idp-profile">IPDN112</Link>
                                         </td>
                                         <td>7402</td>
                                         <td>Female</td>

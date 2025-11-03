@@ -21,6 +21,7 @@ import LeaveRequest from './pages/hr/LeaveRequest';
 import ApproveLeave from './pages/hr/ ApproveLeave';
 import IpdPatient from './pages/hr/IpdPatient';
 import DischargedPatient from './pages/hr/DischargedPatient';
+import IdpProfile from './pages/hr/IdpProfile';
 
 function App() {
   return (
@@ -108,6 +109,11 @@ function App() {
           />
           <Route path="/discharged-patient" element={
             <DischargedPatient />
+          }
+          />
+
+           <Route path="/idp-profile" element={
+            <IdpProfile />
           }
           />
         </Routes>

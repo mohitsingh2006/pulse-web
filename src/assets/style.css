@@ -308,7 +308,7 @@ span.flatpickr-weekday{
 }
 .appointment-page .search-box .form-control{
     min-height: 50px;
-    padding-left: 60px;
+    padding-left: 25px;
     border-radius: 10px;
     width: 350px;
     resize: none;
@@ -412,4 +412,9 @@ span.flatpickr-weekday{
     background-color: rgba(255, 255, 255, 0.70);
     z-index: 99;
 
+}
+
+/* Tab Styling */
+.overview-tab .tab-header h4{
+    
 }
