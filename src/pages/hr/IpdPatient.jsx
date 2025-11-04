@@ -6,6 +6,7 @@ import CreateIdpModal from "../../components/CreateIdpModal"
 import React, { useEffect, useRef, useState } from "react";
 import { Modal } from "bootstrap";
 import CreatePatient from "../../components/CreatePatient"
+import { CiSearch } from "react-icons/ci"
 
 const IpdPatient = () => {
     const navigate = useNavigate();
@@ -51,7 +52,7 @@ const IpdPatient = () => {
 
     return (
         <Layout>
-            <main className="px-4 pb-5 patient-page">
+            <main className="px-4 pb-5 patient-page appointment-page">
                 <div className="row mt-5">
                     <div className="col-12">
                         <div className="bg-white graph-card p-4">
@@ -62,6 +63,18 @@ const IpdPatient = () => {
                                 secontryBtnText={"Discharged Patient"}
                                 secontryBtnClick={() => navigate("/discharged-patient")}
                             />
+                             <div className="mb-3 d-flex gap-3 search-box">
+                                        <div className="position-relative">
+                                          <span className="input-group-text bg-white">
+                                             <CiSearch size={20} />
+                                          </span>
+                                          <input
+                                            type="text"
+                                            className="form-control"
+                                            placeholder="Search...."
+                                          />
+                                        </div>
+                                      </div>
                         </div>
                         <div className="mt-4">
                             <table className="table">

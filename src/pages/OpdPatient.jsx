@@ -8,6 +8,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { Modal, Dropdown } from "bootstrap";
 import CreateOpdModal from "../components/CreateOpdModal";
 import CreatePatient from "../components/CreatePatient";
+import { CiSearch } from "react-icons/ci";
 
 const OpdPatient = () => {
   // 1. Initialize the Bootstrap Modal instance when the component mounts
@@ -129,7 +130,9 @@ const OpdPatient = () => {
             <div className="col-12 col-lg-6 col-xl-4">
               <div className="mb-3 d-flex gap-3 search-box">
                 <div className="position-relative">
-                  <span className="input-group-text bg-white"></span>
+                  <span className="input-group-text bg-white">
+                     <CiSearch size={20} />
+                  </span>
                   <input
                     type="text"
                     className="form-control"
@@ -184,7 +187,7 @@ const OpdPatient = () => {
                   aria-labelledby="pills-profile-tab"
                 >
                   <div className="mt-4">
-                    <table className="table ">
+                    <table className="table">
                       <thead>
                         <tr>
                           <th scope="col">Patient Name</th>

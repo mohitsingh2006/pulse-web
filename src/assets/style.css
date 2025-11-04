@@ -310,7 +310,7 @@ span.flatpickr-weekday{
 }
 .appointment-page .search-box .form-control{
     min-height: 50px;
-    padding-left: 25px;
+    padding-left: 45px;
     border-radius: 10px;
     width: 350px;
     resize: none;
@@ -397,6 +397,7 @@ span.flatpickr-weekday{
   cursor: pointer;
   transition: 0.2s;
 }
+.patient-page
 /* Modal Css styling */
 
 .modal .modal-dialog .modal-body .save-btn button{
@@ -417,14 +418,6 @@ span.flatpickr-weekday{
 }
 
 /* Tab Styling */
-.overview-tab .tab-header h4{
-    
-}
-
-
-
-
-
 .ipd-main-page .nav-pills-outer{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -446,8 +439,6 @@ span.flatpickr-weekday{
     border-radius: 0px;
     font-size: 16px;
     padding: 15px 25px;
-
-  
     
 }
 .ipd-main-page .nav-pills .nav-item .active{
@@ -456,4 +447,20 @@ span.flatpickr-weekday{
 }
 .ipd-main-page .nav-pills .nav-item:first-child .nav-link{
     border-top-left-radius: 10px;
+}
+/* OverView Tab Styling */
+.overview-tab .text-bold{
+    font-weight: 500;
+}
+.overview-tab .table-section h6{
+    text-transform: uppercase;
+}
+ /* .overview-tab .overview-tab .card .card-body .nurse-note{
+    top: "0";
+    background-color: var(--primary-grey-color);
+    position: absolute;
+    border-radius: 50%;
+} */
+.overview-tab .progress-bar{
+    background-color: var(--primary-color);
 }
