@@ -11,8 +11,6 @@ const Staff = () => {
   const handleEdit = (name) => alert(`Edit clicked for ${name}`);
   const handleDelete = (name) => alert(`Delete clicked for ${name}`);
  
-
-
   const staffList = [
     {
     id: 1,
@@ -70,15 +68,11 @@ const Staff = () => {
     phone: "+91 99333 66789",
     role: "Nurse",
   },
-  
   ];
-
-
-
   return (
     <Layout>
-      <main className=" px-4 pb-5 appointment-page">
-        <div className="row mt-5 ">
+      <main className="px-3 pb-5 appointment-page">
+        <div className="row">
             <div className="col-12">
                 <div className="bg-white graph-card p-4">
                     <div className="d-flex justify-content-between align-content-center table-header ">
@@ -132,8 +126,6 @@ const Staff = () => {
                             </div>
                         </div>
                         </div>
-  
-                    
                     <div>
                         <div className="row">
                             {staffList.map((staff, index) => (

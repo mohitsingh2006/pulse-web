@@ -110,7 +110,7 @@ const CreatePatient = ({ handleCloseModal, fetchPatient }) => {
                 </label>
                 <input
                   type="text"
-                  className={`form-control bg-light ${
+                  className={`form-control  ${
                     errors.name && "is-invalid"
                   }`}
                   placeholder=""
@@ -130,7 +130,7 @@ const CreatePatient = ({ handleCloseModal, fetchPatient }) => {
                 <label className="form-label">Guardian Name</label>
                 <input
                   type="text"
-                  className="form-control bg-light"
+                  className="form-control "
                   placeholder=""
                   name="guardian_name"
                   id="guardian_name"
@@ -143,11 +143,11 @@ const CreatePatient = ({ handleCloseModal, fetchPatient }) => {
 
             <div className="col-12 col-lg-6">
               <div className="row">
-                <div className="col-12 col-lg-5">
+                <div className="col-12 col-lg-6">
                   <div className="mb-4">
                     <label className="form-label">Gender</label>
                     <select
-                      className="form-select bg-light"
+                      className="form-select "
                       aria-label="Default select example"
                       defaultValue=""
                       name="gender"
@@ -162,7 +162,7 @@ const CreatePatient = ({ handleCloseModal, fetchPatient }) => {
                     </select>
                   </div>
                 </div>
-                <div className="col-12 col-lg-5">
+                <div className="col-12 col-lg-6">
                   <div className="mb-4">
                     <label htmlFor="date_of_birth" className="form-label">
                       Date of Birth <span>*</span>
@@ -198,7 +198,7 @@ const CreatePatient = ({ handleCloseModal, fetchPatient }) => {
                     <label className="form-label">Blood Group</label>
                     <select
                       name="blood_group"
-                      className="form-control bg-light"
+                      className="form-control "
                       defaultValue=""
                       autoComplete="off"
                       id="blood_group"
@@ -223,7 +223,7 @@ const CreatePatient = ({ handleCloseModal, fetchPatient }) => {
                     <label className="form-label">Marital Status</label>
                     <select
                       name="marital_status"
-                      className="form-control bg-light"
+                      className="form-control "
                       defaultValue=""
                       autoComplete="off"
                       id="marital_status"
@@ -250,7 +250,7 @@ const CreatePatient = ({ handleCloseModal, fetchPatient }) => {
                 </label>
                 <input
                   type="number"
-                  className={`form-control bg-light ${
+                  className={`form-control  ${
                     errors.phone && "is-invalid"
                   }`}
                   placeholder=""
@@ -276,7 +276,7 @@ const CreatePatient = ({ handleCloseModal, fetchPatient }) => {
                 <label className="form-label">Email</label>
                 <input
                   type="text"
-                  className={`form-control bg-light ${
+                  className={`form-control  ${
                     errors.email && "is-invalid"
                   }`}
                   placeholder=""
@@ -298,7 +298,7 @@ const CreatePatient = ({ handleCloseModal, fetchPatient }) => {
                 <label className="form-label">Address</label>
                 <input
                   type="text"
-                  className="form-control bg-light"
+                  className="form-control "
                   placeholder=""
                   name="address"
                   id="address"
@@ -314,7 +314,7 @@ const CreatePatient = ({ handleCloseModal, fetchPatient }) => {
                 <label className="form-label">Remarks</label>
                 <input
                   type="text"
-                  className="form-control bg-light"
+                  className="form-control "
                   placeholder=""
                   name="remark"
                   id="remark"
@@ -330,7 +330,7 @@ const CreatePatient = ({ handleCloseModal, fetchPatient }) => {
                 <label className="form-label">Any Known Allergies</label>
                 <input
                   type="text"
-                  className="form-control bg-light"
+                  className="form-control "
                   placeholder=""
                   name="known_allergies"
                   id="known_allergies"
@@ -345,7 +345,7 @@ const CreatePatient = ({ handleCloseModal, fetchPatient }) => {
               <div className="mb-4">
                 <label className="form-label">TPA</label>
                 <select
-                  className="form-control bg-light"
+                  className="form-control "
                   defaultValue=""
                   name="tpa"
                   id="tpa"
@@ -370,7 +370,7 @@ const CreatePatient = ({ handleCloseModal, fetchPatient }) => {
                 <label className="form-label">TPA ID</label>
                 <input
                   type="text"
-                  className="form-control bg-light"
+                  className="form-control "
                   placeholder=""
                   name="tpa_id"
                   id="tpa_id"
@@ -385,7 +385,7 @@ const CreatePatient = ({ handleCloseModal, fetchPatient }) => {
                 <label className="form-label">TPA Validity</label>
                 <input
                   type="text"
-                  className="form-control bg-light"
+                  className="form-control "
                   placeholder=""
                   name="tpa_validity"
                   id="tpa_validity"
@@ -396,14 +396,14 @@ const CreatePatient = ({ handleCloseModal, fetchPatient }) => {
               </div>
             </div>
 
-            <div className="col-12 col-lg-4">
+            <div className="col-12 col-lg-6">
               <div className="mb-4">
                 <label className="form-label">
                   National Identification Number
                 </label>
                 <input
                   type="text"
-                  className="form-control bg-light"
+                  className="form-control "
                   placeholder=""
                   name="national"
                   id="national"
@@ -414,12 +414,12 @@ const CreatePatient = ({ handleCloseModal, fetchPatient }) => {
               </div>
             </div>
 
-            <div className="col-12">
+            <div className="col-6">
               <div className="mb-4">
                 <label className="form-label">Alternate Number</label>
                 <input
                   type="text"
-                  className="form-control bg-light"
+                  className="form-control "
                   placeholder=""
                   name="alternate_number"
                   id="alternate_number"
@@ -429,7 +429,7 @@ const CreatePatient = ({ handleCloseModal, fetchPatient }) => {
                 />
               </div>
             </div>
-            <div className="col-12 col-lg-3">
+            <div className="col-12 col-lg-12">
               <div className="mb-4">
                 <label className="form-label">Patient Photo</label>
                 <label

@@ -36,7 +36,7 @@ const Sidebar = ({ isCollapsed }) => {
         <img src="../images/logo.svg" alt="Logo" width={150} />
       </div>
 
-      <div className="nav flex-column py-4">
+      <div className="nav flex-column py-2 mt-2">
         <div className="mb-2">
           <Link to="/dashboard" className={getLinkClassName('/dashboard')}>
             <svg
@@ -527,7 +527,7 @@ const Sidebar = ({ isCollapsed }) => {
         </div>
 
         <div className="mb-2">
-          <Link to="#" className="nav-link">
+          <Link to="/general-setting" className="nav-link">
             <svg
               className="me-3"
               width="24"

@@ -1,7 +1,7 @@
 import Layout from "../_layout";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Controller, useForm } from "react-hook-form";
+import DatePickerComponent from "../components/DatePickerComponent";
 const PatientQueue = () => {
   const { control } = useForm({
     defaultValues: {
@@ -10,7 +10,7 @@ const PatientQueue = () => {
   });
   return (
     <Layout>
-      <main className="px-4 pb-5 appointment-shedule">
+      <main className="px-3 pb-5 appointment-shedule">
         <div className="align-items-center form-outer  bg-white p-4">
           <div className="">
             <div className="shedule-header mb-4">
@@ -64,7 +64,7 @@ const PatientQueue = () => {
                       control={control}
                       name="date"
                       render={({ field }) => (
-                        <DatePicker
+                        <DatePickerComponent
                           {...field}
                           selected={field.value}
                           onChange={(date) => field.onChange(date)}
@@ -97,6 +97,10 @@ const PatientQueue = () => {
                     <option value="Select"></option>
                   </select>
                 </div>
+              </div>
+              <div className="text-end mt-3">
+                <button className="btn btn-primary me-2">Reorder Queue</button>
+                <button className="btn btn-primary">Search</button>
               </div>
             </div>
           </div>

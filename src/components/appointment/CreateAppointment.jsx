@@ -1,11 +1,12 @@
 import AsyncSelect from "react-select/async";
 import debounce from "lodash.debounce";
 import { useCallback } from "react";
-import axiosInstance from "../axiosInstance";
+import axiosInstance from "../../axiosInstance";
 import { Controller, useForm } from "react-hook-form";
-import FormError from "./FormError";
+import FormError from "../FormError";
 import DatePicker from "react-datepicker";
 import toast from "react-hot-toast";
+import DatePickerComponent from "../DatePickerComponent";
 
 const CreateAppointment = ({ handleCloseModal, handlePatientModal,fetchAppointment }) => {
   const API_URL = import.meta.env.VITE_API_BASE_URL;
@@ -138,7 +139,7 @@ const CreateAppointment = ({ handleCloseModal, handlePatientModal,fetchAppointme
                       Doctor <span>*</span>
                     </label>
                     <select
-                      className={`form-select bg-light shadow-none ${
+                      className={`form-select  shadow-none ${
                         errors.doctor_id && "is-invalid"
                       }`}
                       aria-label="Default select example"
@@ -166,7 +167,7 @@ const CreateAppointment = ({ handleCloseModal, handlePatientModal,fetchAppointme
                     </label>
                     <input
                       type="number"
-                       className={`form-control bg-light shadow-none ${
+                       className={`form-control  shadow-none ${
                         errors.doctor_fees && "is-invalid"
                       }`}
                       placeholder=""
@@ -191,7 +192,7 @@ const CreateAppointment = ({ handleCloseModal, handlePatientModal,fetchAppointme
                       Shift <span>*</span>{" "}
                     </label>
                     <select
-                        className={`form-select bg-light shadow-none ${
+                        className={`form-select  shadow-none ${
                         errors.shift && "is-invalid"
                       }`}
                       aria-label="Default select example"
@@ -221,7 +222,7 @@ const CreateAppointment = ({ handleCloseModal, handlePatientModal,fetchAppointme
                       name="appointment_date"
                       rules={{ required: "Appointment date is required" }} 
                       render={({ field }) => (
-                        <DatePicker
+                        <DatePickerComponent
                           {...field}
                           selected={field.value}
                           onChange={(date) => field.onChange(date)}
@@ -243,7 +244,7 @@ const CreateAppointment = ({ handleCloseModal, handlePatientModal,fetchAppointme
                       Slot <span>*</span>{" "}
                     </label>
                     <select
-                      className={`form-select bg-light shadow-none ${
+                      className={`form-select  shadow-none ${
                         errors.slot && "is-invalid"
                       }`}
                       aria-label="Default select example"
@@ -270,7 +271,7 @@ const CreateAppointment = ({ handleCloseModal, handlePatientModal,fetchAppointme
                       Appointment Priority <span>*</span>{" "}
                     </label>
                     <select
-                      className={`form-select bg-light shadow-none ${
+                      className={`form-select  shadow-none ${
                           errors.appointment_priority && "is-invalid"
                       }`}
                       aria-label="Default select example"
@@ -297,7 +298,7 @@ const CreateAppointment = ({ handleCloseModal, handlePatientModal,fetchAppointme
                       Payment Mode <span>*</span>{" "}
                     </label>
                     <select
-                      className={`form-select bg-light shadow-none ${
+                      className={`form-select  shadow-none ${
                         errors.payment_mode && "is-invalid"
                       }`}
                       aria-label="Default select example"
@@ -326,7 +327,7 @@ const CreateAppointment = ({ handleCloseModal, handlePatientModal,fetchAppointme
                       Status <span>*</span>{" "}
                     </label>
                     <select
-                      className={`form-select bg-light shadow-none ${
+                      className={`form-select  shadow-none ${
                         errors.status && "is-invalid"
                       }`}
                       aria-label="Default select example"
@@ -349,81 +350,81 @@ const CreateAppointment = ({ handleCloseModal, handlePatientModal,fetchAppointme
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-12 col-lg-4">
-                <div className="mb-4">
-                  <label className="form-label">Discount Percentage</label>
-                  <input
-                    type="number"
-                    className={`form-control bg-light shadow-none ${
-                        errors.discount_percentage && "is-invalid"
-                      }`}
-                    placeholder=""
-                    name="discount_percentage"
-                    id="discount_percentage"
-                    {...register("discount_percentage", {
-                        required: false,
-                        pattern: {
-                          value: /^\d+(\.\d{1,2})?$/, 
-                          message: "Discount field is numaric.",
-                        },
-                    })}
-                  />
-                  {errors.discount_percentage && (
-                        <FormError error={errors.discount_percentage.message} />
-                     )}
-                </div>
-              </div>
-              <div className="col-12 col-lg-4">
-                <div className="mb-4">
-                  <label className="form-label">
-                    Live Consultant (On Video Conference)
-                  </label>
-                  <select
-                    className="form-select bg-light shadow-none"
-                    aria-label="Default select example"
-                    defaultValue=""
-                    name="live_consultant"
-                    id="live_consultant"
-                    {...register("live_consultant", {
-                        required: false,
-                    })}
-                  >
-                    <option value="">Select</option>
-                    <option value="true">Yes</option>
-                    <option value="false">No</option>
-                  </select>
-                </div>
-              </div>
-              <div className="col-12 col-lg-4">
-                <div className="mb-4">
-                  <label className="form-label">Message</label>
-                  <textarea
-                    class="form-control bg-light"
-                    rows="2"
-                    name="message"
-                    id="message"
-                    {...register("message", {
-                        required: false,
-                    })}
-                  ></textarea>
-                </div>
-              </div>
-              <div className="col-12 col-lg-12">
-                <div className="mb-4">
-                  <label className="form-label">Alternate Address</label>
-                  <textarea
-                    className="form-control bg-light"
-                    placeholder=""
-                    id="alternate_address"
-                    name="alternate_address"
-                    {...register("alternate_address", {
-                        required: false,
-                    })}
-                  ></textarea>
-                </div>
+           
+            <div className="col-12 col-lg-6">
+              <div className="mb-4">
+                <label className="form-label">Discount Percentage ss</label>
+                <input
+                  type="number"
+                  className={`form-control  shadow-none ${
+                      errors.discount_percentage && "is-invalid"
+                    }`}
+                  placeholder=""
+                  name="discount_percentage"
+                  id="discount_percentage"
+                  {...register("discount_percentage", {
+                      required: false,
+                      pattern: {
+                        value: /^\d+(\.\d{1,2})?$/, 
+                        message: "Discount field is numaric.",
+                      },
+                  })}
+                />
+                {errors.discount_percentage && (
+                      <FormError error={errors.discount_percentage.message} />
+                    )}
               </div>
             </div>
+            <div className="col-12 col-lg-6">
+              <div className="mb-4">
+                <label className="form-label">
+                  Live Consultant (On Video Conference)
+                </label>
+                <select
+                  className="form-select  shadow-none"
+                  aria-label="Default select example"
+                  defaultValue=""
+                  name="live_consultant"
+                  id="live_consultant"
+                  {...register("live_consultant", {
+                      required: false,
+                  })}
+                >
+                  <option value="">Select</option>
+                  <option value="true">Yes</option>
+                  <option value="false">No</option>
+                </select>
+              </div>
+            </div>
+            <div className="col-12">
+              <div className="mb-4">
+                <label className="form-label">Message</label>
+                <textarea
+                  class="form-control "
+                  rows="2"
+                  name="message"
+                  id="message"
+                  {...register("message", {
+                      required: false,
+                  })}
+                ></textarea>
+              </div>
+            </div>
+            <div className="col-12 col-lg-12">
+              <div className="mb-4">
+                <label className="form-label">Alternate Address</label>
+                <textarea
+                  className="form-control "
+                  placeholder=""
+                  id="alternate_address"
+                  name="alternate_address"
+                  {...register("alternate_address", {
+                      required: false,
+                  })}
+                ></textarea>
+              </div>
+            </div>
+          
           </div>
         </div>
         <div className="modal-footer">

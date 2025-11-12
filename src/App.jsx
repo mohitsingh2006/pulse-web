@@ -22,6 +22,9 @@ import ApproveLeave from './pages/hr/ ApproveLeave';
 import IpdPatient from './pages/hr/IpdPatient';
 import DischargedPatient from './pages/hr/DischargedPatient';
 import IdpProfile from './pages/hr/IdpProfile';
+import GeneralSetting from './pages/setting/GeneralSetting';
+import Setting from './pages/setting/Setting';
+import AttendanceSetting from './pages/setting/AttendanceSetting';
 
 function App() {
   return (
@@ -40,7 +43,6 @@ function App() {
             </ProtectRoute>
           } />
 
-          
           <Route path="/appointment" element={
             <ProtectRoute>
                 <Appointment />
@@ -49,7 +51,7 @@ function App() {
           
           <Route path="/appointment/schedule" element={
             
-                <AppointmentSchedule />
+            <AppointmentSchedule />
             
           } />
 
@@ -112,8 +114,20 @@ function App() {
           }
           />
 
-           <Route path="/idp-profile" element={
+          <Route path="/idp-profile" element={
             <IdpProfile />
+          }
+          />
+          <Route path="/setting" element={
+            <Setting />
+          }
+          />
+          <Route path="/general-setting" element={
+            <GeneralSetting />
+          }
+          />
+          <Route path="/attendance-setting" element={
+            <AttendanceSetting />
           }
           />
         </Routes>

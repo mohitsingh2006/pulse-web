@@ -64,8 +64,8 @@ const Patient = () => {
   }, []);
   return (
     <Layout>     
-        <main className="px-4 pb-5 patient-page">
-          <div className="row mt-5">
+        <main className="px-3 pb-5 patient-page">
+          <div className="row">
             <div className="col-12">
               <div className="bg-white graph-card p-4">
                 <TableHeader

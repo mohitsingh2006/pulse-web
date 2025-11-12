@@ -6,9 +6,11 @@
     --tertiary-grey-color:#dee2e6;
 
     --primary-black:#000000;
-  
+    --secondary-black:#4B5563;
 }
-
+.border{
+    border: 1px solid var(--tertiary-grey-color);
+}
 
 body{
     margin: 0px;
@@ -44,6 +46,10 @@ button,
 .btn-primary{
     background-color: var(--primary-color);
     border-color: var(--primary-color);
+}
+.btn-secondary{
+    background-color: var(--secondary-black);
+    border-color: var(--secondary-black);
 }
 .btn-primary.disabled{
     background-color: var(--primary-color);
@@ -111,7 +117,7 @@ span.flatpickr-weekday{
 
 .login-page .form-outer .eye-icon{
     right: 12px;
-    bottom: 17px;
+    bottom: 8px;
 }
 .login-page .form-outer .forgot-password{
     font-weight: 700;
@@ -289,22 +295,29 @@ span.flatpickr-weekday{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
+.ipd-main-page .card{
+    border: none;
+}
+.ipd-main-page .card .card-header button{
+    box-shadow: none;
+    color: #ffffff;
+    padding: 5px 15px;
+    font-size: 16px;
+} 
 .appointment-page .nav-pills .nav-item .nav-link{
     color: #979393;
-    border-radius: 0px;
     font-size: 16px;
     padding: 15px 25px;
+    border-radius: 10px;
     
 }
 .appointment-page .nav-pills .nav-item .active{
     background-color: #fee2e2;
     color: var(--primary-color);
+    border-radius: 10px;
 }
 .appointment-page .nav-pills .nav-item:first-child .nav-link{
-    border-top-left-radius: 10px;
 }
-
-
 .appointment-page .form-outer .form-control{
     resize: none;
 }
@@ -315,7 +328,6 @@ span.flatpickr-weekday{
     width: 350px;
     resize: none;
 }
-
 .appointment-page .search-box .input-group-text{
     position: absolute;
     left: 0;
@@ -338,7 +350,6 @@ span.flatpickr-weekday{
     color: #979393;
     z-index: 1;
 }
-
 .appointment-page .nav-pills-outer .dr-btn{
     background-color: #4B5563;
     color: var(--primary-white-color);
@@ -348,8 +359,8 @@ span.flatpickr-weekday{
 }
 .appointment-page .nav-pills-outer .queue-icon{
     position: absolute;
-    left: 8px;
-    top: 12px;
+    left: 6px;
+    top:  15px;
     size: 22px;
 }
 .appointment-shedule .shedule-header{
@@ -357,6 +368,17 @@ span.flatpickr-weekday{
 }
 .appointment-shedule .react-datepicker-wrapper {
   width: 100%;
+}
+.appointment-page .table tr td .action-btn {
+ color: #CED1D7;
+ box-shadow:none;
+ 
+ padding: 0px 5px;
+ background-color: #fff;
+
+}
+.appointment-page .table .action-btn button :hover{
+    color: var(--primary-color);
 }
 /* Add Patient style */
 
@@ -376,7 +398,7 @@ span.flatpickr-weekday{
   border-radius: 4px;
   outline: none;
 }
-.add-patient .top-bar .btn-new {
+.add-patient .top-bar .btn-new{
   background: #fff;
   color: var(--primary-color);
   border: none;
@@ -404,7 +426,9 @@ span.flatpickr-weekday{
     letter-spacing: 1px;
 }
 .modal .modal-dialog .modal-body .add-datail{
-    font-weight: bold;
+    color: #4B5563;
+    width: 50%;
+    text-align: justify ;
 }
 
 .screen-overlay{
@@ -449,18 +473,102 @@ span.flatpickr-weekday{
     border-top-left-radius: 10px;
 }
 /* OverView Tab Styling */
+
 .overview-tab .text-bold{
     font-weight: 500;
 }
 .overview-tab .table-section h6{
     text-transform: uppercase;
 }
- /* .overview-tab .overview-tab .card .card-body .nurse-note{
-    top: "0";
-    background-color: var(--primary-grey-color);
-    position: absolute;
-    border-radius: 50%;
-} */
+/* Ipd Nurse Tab  styling */
+.ipd-nurse-note .card-body .card h6{
+    color: var(--primary-color);
+}
+.idp-consultant-register .card-body{
+    padding-left: 0px;
+}
+.idp-consultant-register .card-header{
+    padding-left: 0px;
+}
+.ipd-prescription .card-body{
+    padding-left: 0px;
+}
+.ipd-Lab-invetigation .card-body{
+    padding-left: 0px;
+}
+.ipd-Lab-invetigation .table tr td button{
+    color: #BDC1C9;
+}
 .overview-tab .progress-bar{
     background-color: var(--primary-color);
 }
+.overview-tab .card-body h6{
+    color: var(--primary-color);
+}
+.overview-tab .card-body h5{
+    color: #282828;
+}
+.ipd-Operations .card-header{
+    padding-left: 0px;
+}
+.ipd-Operations .card-body{
+    padding-left: 0px;
+}
+.idp-timeline .list-icon{
+    position: absolute;
+    left: 0;
+    top: 5px;
+    background-color: #0d6efd;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    font-size: 14px;
+}
+.header{
+    min-height:70px;
+}
+/* Setting  styling */
+.setting-page .nav .nav-item{
+    border-bottom: 1px solid var(--tertiary-grey-color);
+}
+.setting-page .nav .nav-item .nav-link{
+ color: #595959;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  padding: 8px 10px;
+  
+}
+
+.setting-page .nav .nav-link.active{
+  
+  color: #e21e23;
+  
+}
+.setting-page .nav .nav-link:hover {
+  
+  color: #e21e23;
+}
+.setting-page .theme-card{
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.setting-page .theme-card:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+.setting-page .theme-card img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+}
+.setting-page .theme-card .btn {
+      width: 100%;
+      border-radius: 0;
+    }

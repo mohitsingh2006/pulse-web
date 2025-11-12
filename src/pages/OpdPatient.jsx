@@ -52,11 +52,11 @@ const OpdPatient = () => {
 
   return (
     <Layout>
-      <main className=" px-4 pb-5 appointment-page">
-        <div className="row mt-5 ">
+      <main className="px-3 pb-5 appointment-page">
+        <div className="row">
           <div className="col-12">
-            <div className="bg-white nav-pills-outer mb-4 border-bottom d-flex justify-content-between">
-              <ul className="nav nav-pills" id="pills-tab" role="tablist">
+            <div className="bg-white nav-pills-outer mb-4 d-flex justify-content-between py-2 shadow-sm">
+              <ul className="nav nav-pills ps-2" id="pills-tab" role="tablist">
                 <li className="nav-item" role="presentation">
                   <button
                     className="nav-link shadow-none active"
@@ -410,7 +410,7 @@ const OpdPatient = () => {
           onHide={() => setShowCreateOpdModal(false)}
           data-bs-backdrop="static"
           dataBsKeyboard="false"
-          tabindex="-1"
+          tabIndex="-1"
         >
           <div className="modal-dialog modal-xl">
             <CreateOpdModal
@@ -427,7 +427,7 @@ const OpdPatient = () => {
           onHide={() => setShowCreatePatientModal(false)}
           data-bs-backdrop="static"
           dataBsKeyboard="false"
-          tabindex="-1"
+          tabIndex="-1"
         >
           <div className="modal-dialog modal-xl">
             <CreatePatient

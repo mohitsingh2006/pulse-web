@@ -22,7 +22,7 @@ const CreateLeaveModal = ({ handleCloseModal }) => {
               <div className="row">
                 <div className="mb-4">
                   <label className="form-label">
-                   Apply Datekkhkhkk
+                   Apply Date
                     <span>*</span>
                   </label>
                   <DatePickerComponent

@@ -126,10 +126,10 @@ const CreateStaff = () => {
 
   return (
     <Layout>
-      <main className=" px-4 pb-5 appointment-page position-relative">
+      <main className="px-4 pb-5 appointment-page position-relative">
         {loadingObj.pageLoading && <div className="screen-overlay"></div>}
 
-        <div className="row mt-5 form-outer">
+        <div className="row form-outer">
           <form className="form-outer" onSubmit={handleSubmit(onSubmit)}>
             <div className="col-12">
               <div className="bg-white graph-card p-4">
@@ -167,7 +167,7 @@ const CreateStaff = () => {
                         <span>*</span>
                       </label>
                       <select
-                        className={`form-select bg-light shadow-none ${
+                        className={`form-select  shadow-none ${
                           errors.role && "is-invalid"
                         }`}
                         defaultValue={""}
@@ -191,7 +191,7 @@ const CreateStaff = () => {
                     <div className="col-md-3">
                       <label className="form-label">Designation</label>
                       <select
-                        className="form-select bg-light"
+                        className="form-select "
                         id="designation"
                         name="designation"
                         {...register("designation", {
@@ -211,7 +211,7 @@ const CreateStaff = () => {
                     <div className="col-md-3">
                       <label className="form-label">Department</label>
                       <select
-                        className="form-select bg-light"
+                        className="form-select "
                         id="department"
                         name="department"
                         {...register("department", {
@@ -320,7 +320,7 @@ const CreateStaff = () => {
                         <span>*</span>
                       </label>
                       <select
-                        className={`form-select bg-light ${
+                        className={`form-select  ${
                           errors.gender && "is-invalid"
                         }`}
                         name="gender"
@@ -341,7 +341,7 @@ const CreateStaff = () => {
                     <div className="col-md-3">
                       <label className="form-label">Marital Status</label>
                       <select 
-                        className="form-select bg-light"
+                        className="form-select "
                         defaultValue={''}
                         name="marital_status"
                         id="marital_status"
@@ -357,7 +357,7 @@ const CreateStaff = () => {
                     <div className="col-md-3">
                       <label className="form-label">Blood Group</label>
                       <select 
-                        className="form-select bg-light"
+                        className="form-select "
                         defaultValue={""}
                         name="blood_group"
                         id="blood_group"
@@ -616,7 +616,7 @@ const CreateStaff = () => {
                     <label className="form-label">Contract Type</label>
                     <select
                       defaultValue={''}
-                      className="form-select bg-light 1875rem"
+                      className="form-select  1875rem"
                       name="contract_type"
                       id="contract_type"
                       {...register("contract_type", {
@@ -698,7 +698,7 @@ const CreateStaff = () => {
                 </div>
                 <div className="d-flex justify-content-between align-content-center table-header my-4 ">
                   <div className="d-flex align-content-center">
-                    <h4>Social Media Links</h4>
+                    <h4>Upload Documents</h4>
                   </div>
                 </div>
                 <div className="row g-3">

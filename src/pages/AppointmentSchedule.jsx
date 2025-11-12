@@ -2,6 +2,7 @@ import Layout from "../_layout";
 import { Controller, useForm } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import DatePickerComponent from "../components/DatePickerComponent";
 
 const AppointmentSchedule = () => {
   const { control } = useForm({
@@ -11,7 +12,7 @@ const AppointmentSchedule = () => {
   });
   return (
     <Layout>
-      <main className="px-4 pb-5 appointment-shedule">
+      <main className="px-3 pb-5 appointment-shedule">
         <div className="align-items-center form-outer  bg-white p-4">
           <div className="">
             <div className="shedule-header mb-4">
@@ -25,7 +26,7 @@ const AppointmentSchedule = () => {
                     <span> *</span>
                   </label>
                   <select
-                    className="form-select bg-light"
+                    className="form-select"
                     aria-label="Default select example"
                     defaultValue=""
                     name="gender"
@@ -49,7 +50,7 @@ const AppointmentSchedule = () => {
                       control={control}
                       name="date"
                       render={({ field }) => (
-                        <DatePicker
+                        <DatePickerComponent
                           {...field}
                           selected={field.value}
                           onChange={(date) => field.onChange(date)}
@@ -64,6 +65,9 @@ const AppointmentSchedule = () => {
                     />
                   </div>
                 </div>
+              </div>
+              <div className="text-end mt-3">
+                <button className="btn btn-primary">Search</button>
               </div>
             </div>
           </div>

@@ -1,13 +1,24 @@
-import React from "react";
+
 import { AiOutlineProfile } from "react-icons/ai";
 import { RiDeleteBin6Line, RiEdit2Fill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { LuClipboardList } from "react-icons/lu";
-import { MdLocalOffer } from "react-icons/md";
+import React, { useEffect, useRef, useState } from "react";
+import { Modal } from "bootstrap";
 import { FaBed } from "react-icons/fa";
-import { LuClock3 } from "react-icons/lu";
+import OverviewPatientDetailModal from "./OverviewPatientDetailModal";
+import OverviewEditprofileModal from "./OverviewEditprofileModal";
 
 const IpdOverview = () => {
+  const [showPatientDetailModal, setShowPatientDetail] = useState(false);
+  const PatientDetailModalRef = useRef(null);
+  const PatientDetailModalInstance = useRef(null);
+  
+
+  const [showEditProfileModal, setShowEditProfileModal] = useState(false);
+  const EditProfileModalRef = useRef(null);
+  const EditProfileModalInstance = useRef(null);
+
   const billingData = [
     {
       title: "IPD PAYMENT/BILLING",
@@ -52,6 +63,40 @@ const IpdOverview = () => {
       total: 172.5,
     },
   ];
+
+  useEffect(() => {
+      if (PatientDetailModalInstance.current) {
+        if (showPatientDetailModal) {
+          PatientDetailModalInstance.current.show();
+        } else {
+          PatientDetailModalInstance.current.hide();
+        }
+      }
+
+       if (EditProfileModalInstance.current) {
+        if (showEditProfileModal) {
+          EditProfileModalInstance.current.show();
+        } else {
+          EditProfileModalInstance.current.hide();
+        }
+      }
+  
+    }, [showEditProfileModal , showPatientDetailModal]);
+
+   // 1. Initialize the Bootstrap Modal instance when the component mounts
+    useEffect(() => {
+      
+      if (PatientDetailModalRef.current) {
+          PatientDetailModalInstance.current = new Modal(PatientDetailModalRef.current, {});
+      }
+
+      if (EditProfileModalRef.current) {
+          EditProfileModalInstance.current = new Modal(EditProfileModalRef.current, {});
+      }
+  
+    }, []);
+    
+  
   return (
     <div className="row overview-tab">
       <div className="col-12 col-lg-6">
@@ -60,24 +105,29 @@ const IpdOverview = () => {
             <h4 className="fw-bold">Stuart Wood (580)</h4>
           </div>
           <div className="">
-            <Link to="#" className="me-3 cursor-pointer">
+            <button className="cursor-pointer btn"
+            onClick={() => setShowPatientDetail(true)}
+            >
               <AiOutlineProfile size={20} />
-            </Link>
-            <Link to="#" className="me-3 cursor-pointer">
+            </button>
+
+            <button className="cursor-pointer btn"
+            onClick={() => setShowEditProfileModal(true)}
+            >
               <RiEdit2Fill size={20} />
-            </Link>
-            <Link to="#" className="cursor-pointer text-danger"></Link>
-            <Link className="me-3 cursor-pointer">
+            </button>
+          
+            <Link className="cursor-pointer">
               <LuClipboardList size={20} />
             </Link>
-            <Link className="me-3 cursor-pointer">
+            <Link className=" cursor-pointer">
               <RiDeleteBin6Line size={20} />
             </Link>
           </div>
         </div>
         <div className="row border-bottom pb-6">
           <div className="col-lg-4">
-            <div className="overflosw-hidden">
+            <div className="overflow-hidden">
               <img className="rounded" src="https://placehold.co/50x50" alt="" width="100%" height="auto" />
             </div>
           </div>
@@ -132,9 +182,9 @@ const IpdOverview = () => {
         <div className="row border-bottom pt-4 ">
           <div className="card mb-4 shadow-sm border-0">
             <div className="card-body">
-              <h6 className="fw-bold mb-3">
+              <h5 className="fw-bold mb-3">
                 <i className="bi bi-tag me-2"></i> Current Vitals:
-              </h6>
+              </h5>
               <div className="row align-items-center mb-2">
                 <div className="col-md-4">
                   <strong>Height</strong>
@@ -174,9 +224,9 @@ const IpdOverview = () => {
 
           <div className="card mb-4 border-0 shadow-sm">
             <div className="card-body">
-              <h6 className="fw-bold mb-2">
+              <h5 className="fw-bold mb-2">
                 <i className="bi bi-tag me-2"></i> Known Allergies
-              </h6>
+              </h5>
               <ul className="mb-0">
                 <li>Dust</li>
               </ul>
@@ -185,9 +235,9 @@ const IpdOverview = () => {
 
           <div className="card mb-4 border-0 shadow-sm">
             <div className="card-body">
-              <h6 className="fw-bold mb-2">
+              <h5 className="fw-bold mb-2">
                 <i className="bi bi-tag me-2"></i> Finding
-              </h6>
+              </h5>
               <p className="mb-0">
                 <strong>Rosacea Rosacea</strong> (roe-ZAY-she-uh) is a common
                 skin condition that causes blushing or flushing and visible
@@ -200,9 +250,9 @@ const IpdOverview = () => {
 
           <div className="card mb-4 border-0 shadow-sm">
             <div className="card-body">
-              <h6 className="fw-bold mb-2">
+              <h5 className="fw-bold mb-2">
                 <i className="bi bi-tag me-2"></i> Symptoms
-              </h6>
+              </h5>
               <ul>
                 <li>
                   <strong>Cramps and injuries</strong>
@@ -221,7 +271,7 @@ const IpdOverview = () => {
 
           <div className="card mb-4 border-0 shadow-sm">
             <div className="card-body">
-              <h6 className="fw-bold mb-2">CONSULTANT DOCTOR</h6>
+              <h5 className="fw-bold mb-2">CONSULTANT DOCTOR</h5>
               <div className="d-flex align-items-center mt-2">
                 <img
                   src="https://placehold.co/35"
@@ -235,7 +285,7 @@ const IpdOverview = () => {
 
           <div className="card mb-4 border-0 shadow-sm">
             <div className="card-body">
-              <h6 className="fw-bold mb-3">NURSE NOTES</h6>
+              <h5 className="fw-bold mb-3">NURSE NOTES</h5>
 
               <span className="badge bg-primary mb-3">10/10/2025 12:36 PM</span>
 
@@ -246,7 +296,7 @@ const IpdOverview = () => {
 
                 <div className="card bg-light border-0 mb-3">
                   <div className="card-body">
-                    <h6 className="text-primary mb-2">April Clinton (9020)</h6>
+                    <h6 className="mb-2">April Clinton (9020)</h6>
                     <p className="mb-1">
                       <strong>Note</strong>
                     </p>
@@ -262,7 +312,7 @@ const IpdOverview = () => {
           </div>
           <div className="card border-0 shadow-sm">
             <div className="card-body">
-              <h6 className="fw-bold mb-3">TIMELINE</h6>
+              <h5 className="fw-bold mb-3">TIMELINE</h5>
               <span className="badge bg-primary mb-3">10/08/2025 09:30 PM</span>
               <div className="position-relative ps-4 border-start border-2 border-secondary">
                 <div className="position-absolute top-0 start-0 translate-middle bg-white border rounded-circle p-2">
@@ -271,7 +321,7 @@ const IpdOverview = () => {
 
                 <div className="card bg-light border-0">
                   <div className="card-body">
-                    <h6 className="text-primary mb-2">
+                    <h6 className="mb-2">
                       Daily Routine Check up
                     </h6>
                     <p className="mb-0">Daily Routine Check up</p>
@@ -319,7 +369,7 @@ const IpdOverview = () => {
           <div className="row pt-4 table-section">
             <div>
               <h6>Medication</h6>
-              <table class="table pb-4">
+              <table className="table pb-4">
                 <thead>
                   <tr>
                     <th>Date</th>
@@ -350,7 +400,7 @@ const IpdOverview = () => {
 
             <div className="pt-5">
               <h6>Prescriptton</h6>
-              <table class="table">
+              <table className="table">
                 <thead>
                   <tr>
                     <th>Prescription No</th>
@@ -372,7 +422,7 @@ const IpdOverview = () => {
 
             <div className="pt-5">
               <h6> Consultant Register</h6>
-              <table class="table">
+              <table className="table">
                 <thead>
                   <tr>
                     <th>Applied Date</th>
@@ -393,7 +443,7 @@ const IpdOverview = () => {
             </div>
             <div className="pt-5">
               <h6>Lab Investigation</h6>
-              <table class="table">
+              <table className="table">
                 <thead>
                   <tr>
                     <th>Test Name</th>
@@ -598,6 +648,38 @@ const IpdOverview = () => {
           </div>
         
       </div>
+
+      {/* Patient Details Modal */}
+       <div
+            className="modal fade create-appointment-modal"
+            ref={PatientDetailModalRef}
+            onHide={() => setShowPatientDetail(false)}
+            data-bs-backdrop="static"
+            data-bs-keyboards="false"
+            tabIndex="-1"
+          >
+            <div className="modal-dialog modal-xl">
+              <OverviewPatientDetailModal
+                handleCloseModal={() => setShowPatientDetail(false)}
+              />
+            </div>
+          </div>  
+          
+          {/*Edit Profile Modal */}
+         <div
+            className="modal fade create-appointment-modal"
+            ref={EditProfileModalRef}
+            onHide={() => setShowEditProfileModal(false)}
+            data-bs-backdrop="static"
+            data-bs-keyboards="false"
+            tabIndex="-1"
+          >
+            <div className="modal-dialog modal-xl">
+              <OverviewEditprofileModal
+                handleCloseModal={() => setShowEditProfileModal(false)}
+              />
+            </div>
+          </div>                     
     </div>
   );
 };

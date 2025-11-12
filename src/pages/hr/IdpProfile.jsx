@@ -2,11 +2,31 @@
 import Layout from "../../_layout";
 import { MdViewCompact } from "react-icons/md";
 import { FaRegFileLines } from "react-icons/fa6";
-
 import IpdOverview from "../../components/idp/IpdOverview";
 import IpdNurseNote from "../../components/idp/IpdNurseNote";
 import IpdMedication from "../../components/idp/IpdMedication";
-
+import IpdPrescription from "../../components/idp/IpdPrescription";
+import { FaKitMedical } from "react-icons/fa6";
+import { FaFilePrescription } from "react-icons/fa6";
+import { FaRegCalendarCheck } from "react-icons/fa";
+import { HiScissors } from "react-icons/hi2";
+import { FaHandHoldingDollar } from "react-icons/fa6";
+import IdpLiveConsultation from "../../components/idp/IdpLiveConsultation";
+import { RiLiveFill } from "react-icons/ri";
+import IdpPayment from "../../components/idp/IdpPayment";
+import IdpCharge from "../../components/idp/IdpCharge";
+import IdpOperations from "../../components/idp/IdpOperations";
+import IdpLabInvestigation from "../../components/idp/IdpLabInvestigation";
+import IdpConsultantRegister from "../../components/idp/IdpConsultantRegister";
+import { FaBedPulse } from "react-icons/fa6";
+import IpdBedHistory from "../../components/idp/IpdBedHistory";
+import IpdTimeline from "../../components/idp/IpdTimeline";
+import { RiHourglassFill } from "react-icons/ri";
+import TreatmentHistory from "../../components/idp/TreatmentHistory";
+import IpdVital from "../../components/idp/IpdVital";
+import { FaHeartbeat } from "react-icons/fa";
+import { FaDiagnoses } from "react-icons/fa";
+import { LiaDonateSolid } from "react-icons/lia";
 const IdpProfile = () => {
 	const ipdTabs = [
 		{ 
@@ -23,21 +43,111 @@ const IdpProfile = () => {
 			className="me-1"/> , 
 			component: <IpdNurseNote /> 
 		},
-		{ id: 3, label: "Medication", icon: false,component: <IpdMedication /> },
-		{ id: 4, label: "Prescription", icon: false },
-		{ id: 5, label: "Consultant Register", icon: false },
-		{ id: 6, label: "Lab Investigation", icon: false },
-		{ id: 7, label: "Operations", icon: false },
-		{ id: 8, label: "Charges", icon: false },
-		{ id: 9, label: "Payments", icon: false },
-		{ id: 10, label: "Live Consultation", icon: false },
-		{ id: 11, label: "Bed History", icon: false },
-		{ id: 12, label: "Timeline", icon: false },
-		{ id: 13, label: "Treatment History", isActive: false },
-		{ id: 14, label: " Vitals", icon: false },
-		{ id: 15, label: "Overview", icon: false }
+		{ 	id: 3,
+			label: "Medication",
+			icon: <FaKitMedical 
+			size={22} 
+			className="me-1"/>,
+			component: <IpdMedication /> 
+		},
+		{ 
+			id: 4, 
+			label: "Prescription",
+			icon: <FaFilePrescription 
+			size={22}
+			className="me-1"
+			/>,
+			component:<IpdPrescription /> 
+		},
+		{ 
+			id: 5,
+			label: "Consultant Register",
+			icon: <FaRegCalendarCheck 
+			size={22}
+			className="me-1"
+			/>, 
+			component:<IdpConsultantRegister /> },
+		{ 
+			id: 6,
+			label: "Lab Investigation",
+			icon: <FaDiagnoses 
+			className="me-1"
+			size={22}
+			/>, 
+			component:<IdpLabInvestigation /> },
+		{ 
+			id: 7,
+			label: "Operations",
+			icon: <HiScissors 
+			size={22}
+			className="me-1"
+			/>,
+			component:<IdpOperations />
+		},
+		{ 
+			id: 8,
+			label: "Charges",
+			icon: <LiaDonateSolid 
+			className="me-1"
+			size={22}
+			/>,
+			component:<IdpCharge />
+		},
+		{ 
+			id: 9,
+			label: "Payments",
+			icon: <FaHandHoldingDollar 
+			className="me-1"
+			size={22}
+			/>,
+			component:<IdpPayment />
+		},
+		{ 
+			id: 10, 
+			label: "Live Consultation",
+			icon: <RiLiveFill 
+			size={22}
+			className="me-1"
+			/>,
+			component:<IdpLiveConsultation />
+		},
+		{ 
+			id: 11,
+			label: "Bed History",
+			icon: <FaBedPulse 
+			size={22}
+			className="me-1"
+			/>,
+			component:<IpdBedHistory />
+		},
+		{ 
+			id: 12, 
+			label: "Timeline",
+			icon: <FaRegCalendarCheck 
+			size={22}
+			className="me-1"
+			/>,
+			component:<IpdTimeline />
+		},
+		{ 
+			id: 13,
+			label: "Treatment History",
+			icon: <RiHourglassFill 
+			size={22}
+			className="me-1"
+			/>,
+			component:<TreatmentHistory />
+		},
+		{ 
+			id: 14,
+			label: " Vitals",
+			icon: <FaHeartbeat 
+			className="me-1"
+			size={22}
+			/> ,
+			component:<IpdVital />
+		},
 	];
-
 
 	return (
 		<Layout>
@@ -64,8 +174,6 @@ const IdpProfile = () => {
 											</button>
 										</li>
 									))}
-
-
 								</ul>
 							</div>
 						</div>

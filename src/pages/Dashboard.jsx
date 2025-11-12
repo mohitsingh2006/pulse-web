@@ -26,7 +26,7 @@ const Dashboard = () => {
   
   return (
     <Layout>      
-        <main className="px-4 pb-5 dashboard">
+        <main className="px-3 pb-5 dashboard">
           <div className="welcome-card px-4 py-4">
             <div className="row align-items-center">
               <div className="col-12 col-lg-6">
