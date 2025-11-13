@@ -271,13 +271,10 @@ span.flatpickr-weekday{
     font-size: 14px;
     border-radius: 6px;
 }
-
-
 .dashboard .graph-card .table tbody tr td .doctor-name{
     font-size: 16px;
     font-weight: 600;
 }
-
 .dashboard .graph-card .table tbody tr td .badge-pill{
     color: var(--primary-black);
     font-weight: 500;
@@ -285,12 +282,10 @@ span.flatpickr-weekday{
     border-radius: 50px;
     font-size: 14px;
 }
-
 .patient-page .table tbody tr td{
     color: var(--secondary-black);
 }
 /* Modal styling */
-
 .ipd-main-page .nav-pills-outer{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -344,7 +339,7 @@ span.flatpickr-weekday{
 }
 .search-box .filter-icon span{
     position: absolute;
-    left: 28px;
+    left: 20px;
     top: 12px;
     margin-left: 2px;
     color: #979393;
@@ -537,20 +532,15 @@ span.flatpickr-weekday{
     border-bottom: 1px solid var(--tertiary-grey-color);
 }
 .setting-page .nav .nav-item .nav-link{
- color: #595959;
+  color: #595959;
   border: 1px solid transparent;
   border-radius: 5px;
   padding: 8px 10px;
-  
 }
-
 .setting-page .nav .nav-link.active{
-  
   color: #e21e23;
-  
 }
 .setting-page .nav .nav-link:hover {
-  
   color: #e21e23;
 }
 .setting-page .theme-card{
@@ -569,6 +559,6 @@ span.flatpickr-weekday{
     object-fit: cover;
 }
 .setting-page .theme-card .btn {
-      width: 100%;
-      border-radius: 0;
-    }
+    width: 100%;
+    border-radius: 0;
+}

@@ -1,6 +1,7 @@
 import { FaCheckDouble } from "react-icons/fa6";
 import Layout from "../../_layout";
 import { Link } from "react-router-dom";
+import SettingSidebar from "../../components/setting/SettingSidebar";
 
 const AttendanceSetting = () => {
   return (
@@ -8,136 +9,959 @@ const AttendanceSetting = () => {
       <main className="setting-page">
         <div className="row p-3">
           <div className="col-12 col-lg-2">
-            <div className="graph-card bg-white">
-              <ul className="nav flex-column">
-                <li className="nav-item">
-                  <Link className="nav-link active" to="/general-setting">
-                    General Setting
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/attendance-setting">
-                    Attendance Setting
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="#">
-                    Notification Setting
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="">
-                    Notification Setting
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="">
-                    SMS Setting
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="">
-                    Email Setting
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="">
-                    Payment Methods
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="">
-                    Front CMS Setting
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="">
-                    Prefix Setting{" "}
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="">
-                    Roles Permissions
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="">
-                    Backup / Restore
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="">
-                    Languages
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="">
-                    Users
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="">
-                    Captcha Settings
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="">
-                    Addons
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="">
-                    Modules
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="">
-                    System Update
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            <SettingSidebar />
           </div>
           <div className="col-12 col-lg-10">
             <div className="bg-white graph-card p-3">
-              <div className="border-bottom">
-                <h6>Biometric Attendance Setting</h6>
+              <div className="">
+                <h5>Biometric Attendance Setting</h5>
               </div>
-              <form className="form-outer py-3">
-                <div className="row">
-                    <div className="col-12">
-                        <div className="mb-4">
-                            <label className="form-label">Biometric Attendance</label>
-                        <div>
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="doctorMode" />
-                            <label className="form-check-label">Disabled</label>
-                        </div>
-                        <div className="form-check form-check-inline">
-                            <input className="form-check-input" type="radio" name="doctorMode" />
-                            <label className="form-check-label">Enabled</label>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                  <div className="col-12">
-                    <div className="mb-4">
-                      <label className="form-label">
-                        Devices (Separate By Comma)<span>*</span>
-                      </label>
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Smart Hospital & Research Center"
-                        id=""
-                        name=""
-                      />
-                    </div>
+              <div className="border-bottom"></div>
+              <div class="row my-3">
+                <label class="col-sm-3 ">Biometric Attendance</label>
+                <div class="col-sm-9">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="biometric"
+                      id="disabled"
+                    />
+                    <label class="form-check-label">Disabled</label>
                   </div>
-                  
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="biometric"
+                      id="enabled"
+                    />
+                    <label class="form-check-label">Enabled</label>
+                  </div>
                 </div>
+              </div>
+              <div class="row mb-3">
+                <div className="d-flex justify-content-between">
+                  <div>
+                    <label class="form-label">
+                      Devices (Separate By Comma)
+                    </label>
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" placeholder="" />
+                  </div>
+                </div>
+              </div>
+              <div className="border-bottom"></div>
+              <div class="text-end pt-3">
+                <button class="btn btn-primary">Save</button>
+              </div>
+            </div>
+            <div className="bg-white graph-card p-3 my-3">
+              <div>
+                <div className="pb-2">
+                  <h5>Attendance Setting</h5>
+                </div>
+                <div className="border-bottom"></div>
+                <div class="d-flex justify-content-between align-items-center mb-3 box-header">
+                  <span>
+                    Role: <strong>Admin</strong>
+                  </span>
+                  <div className="pt-4">
+                    <button class="btn btn-primary btn-sm">Update</button>
+                  </div>
+                </div>
+                <table class="table table-borderless align-middle">
+                  <thead>
+                    <tr>
+                      <th>Attendance Type</th>
+                      <th>Entry From (hh:mm:ss)</th>
+                      <th>Entry Upto (hh:mm:ss)</th>
+                      <th>Total Hour</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        Present (<span class="text-success fw-bold">P</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:00:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:15:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="08:30:30"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Late (<span class="text-warning fw-bold">L</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:15:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:30:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="08:00:30"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Half Day (<span class="text-danger fw-bold">F</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="13:30:30"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="13:45:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="05:30:30"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Half Day Second Shift (
+                        <span class="text-secondary fw-bold">SH</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="14:00:30"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="14:15:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="04:30:30"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>                
+                <div className="border-bottom"></div>
+                <div class="d-flex justify-content-between align-items-center mb-3 box-header">
+                  <span>
+                    Role: <strong>Accountant</strong>
+                  </span>
+                  <div className="pt-4">
+                    <button class="btn btn-primary btn-sm">Update</button>
+                  </div>
+                </div>
+                <table class="table table-borderless align-middle">
+                  <thead>
+                    <tr>
+                      <th>Attendance Type</th>
+                      <th>Entry From (hh:mm:ss)</th>
+                      <th>Entry Upto (hh:mm:ss)</th>
+                      <th>Total Hour</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        Present (<span class="text-success fw-bold">P</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:00:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:15:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="08:30:30"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Late (<span class="text-warning fw-bold">L</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:15:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:30:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="08:00:30"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Half Day (<span class="text-danger fw-bold">F</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="13:30:30"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="13:45:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="05:30:30"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Half Day Second Shift (
+                        <span class="text-secondary fw-bold">SH</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="14:00:30"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="14:15:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="04:30:30"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div>
+                <div className="border-bottom"></div>
+                <div class="d-flex justify-content-between align-items-center mb-3 box-header">
+                  <span>
+                    Role: <strong>Doctor</strong>
+                  </span>
+                  <div className="pt-4">
+                    <button class="btn btn-primary btn-sm">Update</button>
+                  </div>
+                </div>
+                <table class="table table-borderless align-middle">
+                  <thead>
+                    <tr>
+                      <th>Attendance Type</th>
+                      <th>Entry From (hh:mm:ss)</th>
+                      <th>Entry Upto (hh:mm:ss)</th>
+                      <th>Total Hour</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        Present (<span class="text-success fw-bold">P</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:00:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:15:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="08:30:30"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Late (<span class="text-warning fw-bold">L</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:15:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:30:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="08:00:30"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Half Day (<span class="text-danger fw-bold">F</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="13:30:30"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="13:45:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="05:30:30"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Half Day Second Shift (
+                        <span class="text-secondary fw-bold">SH</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="14:00:30"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="14:15:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="04:30:30"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div>
+                <div className="border-bottom"></div>
+                <div class="d-flex justify-content-between align-items-center mb-3 box-header">
+                  <span>
+                    Role: <strong>Pharmacist</strong>
+                  </span>
+                  <div className="pt-4">
+                    <button class="btn btn-primary btn-sm">Update</button>
+                  </div>
+                </div>
+                <table class="table table-borderless align-middle">
+                  <thead>
+                    <tr>
+                      <th>Attendance Type</th>
+                      <th>Entry From (hh:mm:ss)</th>
+                      <th>Entry Upto (hh:mm:ss)</th>
+                      <th>Total Hour</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        Present (<span class="text-success fw-bold">P</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:00:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:15:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="08:30:30"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Late (<span class="text-warning fw-bold">L</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:15:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:30:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="08:00:30"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Half Day (<span class="text-danger fw-bold">F</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="13:30:30"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="13:45:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="05:30:30"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Half Day Second Shift (
+                        <span class="text-secondary fw-bold">SH</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="14:00:30"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="14:15:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="04:30:30"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div>
+                <div className="border-bottom"></div>
+                <div class="d-flex justify-content-between align-items-center mb-3 box-header">
+                  <span>
+                    Role: <strong>Pathologist</strong>
+                  </span>
+                  <div className="pt-4">
+                    <button class="btn btn-primary btn-sm">Update</button>
+                  </div>
+                </div>
+                <table class="table table-borderless align-middle">
+                  <thead>
+                    <tr>
+                      <th>Attendance Type</th>
+                      <th>Entry From (hh:mm:ss)</th>
+                      <th>Entry Upto (hh:mm:ss)</th>
+                      <th>Total Hour</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        Present (<span class="text-success fw-bold">P</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:00:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:15:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="08:30:30"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Late (<span class="text-warning fw-bold">L</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:15:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:30:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="08:00:30"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Half Day (<span class="text-danger fw-bold">F</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="13:30:30"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="13:45:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="05:30:30"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Half Day Second Shift (
+                        <span class="text-secondary fw-bold">SH</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="14:00:30"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="14:15:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="04:30:30"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div>
+                <div className="border-bottom"></div>
+                <div class="d-flex justify-content-between align-items-center mb-3 box-header">
+                  <span>
+                    Role: <strong>Radiologist</strong>
+                  </span>
+                  <div className="pt-4">
+                    <button class="btn btn-primary btn-sm">Update</button>
+                  </div>
+                </div>
+                <table class="table table-borderless align-middle">
+                  <thead>
+                    <tr>
+                      <th>Attendance Type</th>
+                      <th>Entry From (hh:mm:ss)</th>
+                      <th>Entry Upto (hh:mm:ss)</th>
+                      <th>Total Hour</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        Present (<span class="text-success fw-bold">P</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:00:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:15:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="08:30:30"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Late (<span class="text-warning fw-bold">L</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:15:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:30:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="08:00:30"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Half Day (<span class="text-danger fw-bold">F</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="13:30:30"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="13:45:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="05:30:30"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Half Day Second Shift (
+                        <span class="text-secondary fw-bold">SH</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="14:00:30"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="14:15:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="04:30:30"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
               
-              </form>
+              <div>
+                <div className="border-bottom"></div>
+                <div class="d-flex justify-content-between align-items-center mb-3 box-header">
+                  <span>
+                    Role: <strong>Super Admin</strong>
+                  </span>
+                  <div className="pt-4">
+                    <button class="btn btn-primary btn-sm">Update</button>
+                  </div>
+                </div>
+                <table class="table table-borderless align-middle">
+                  <thead>
+                    <tr>
+                      <th>Attendance Type</th>
+                      <th>Entry From (hh:mm:ss)</th>
+                      <th>Entry Upto (hh:mm:ss)</th>
+                      <th>Total Hour</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        Present (<span class="text-success fw-bold">P</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:00:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:15:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="08:30:30"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Late (<span class="text-warning fw-bold">L</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:15:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="10:30:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="08:00:30"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Half Day (<span class="text-danger fw-bold">F</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="13:30:30"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="13:45:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="05:30:30"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Half Day Second Shift (
+                        <span class="text-secondary fw-bold">SH</span>)
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="14:00:30"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="time"
+                          class="form-control"
+                          value="14:15:00"
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          class="form-control"
+                          value="04:30:30"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>

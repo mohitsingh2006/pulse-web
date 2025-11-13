@@ -20,7 +20,7 @@ const RescheduleModal = ({handleCloseModal}) => {
                             <div className="mb-4">
                                 <label className="form-label">Doctor<span>*</span></label>
                                 <select 
-                                    className="form-select bg-light"
+                                    className="form-select"
                                     aria-label="Default select example"
                                     defaultValue=""
                                     id="doctor"
@@ -33,7 +33,7 @@ const RescheduleModal = ({handleCloseModal}) => {
                             <div className="mb-4">
                                 <label className="form-label">Slot<span>*</span></label>
                                 <select 
-                                    className="form-select bg-light"
+                                    className="form-select"
                                     aria-label="Default select example"
                                     defaultValue=""
                                     id="slot"
@@ -47,12 +47,12 @@ const RescheduleModal = ({handleCloseModal}) => {
                         <div className="col-12 col-lg-3">
                             <div className="mb-4">
                                 <label className="form-label">Doctor Fees ($) <span>*</span></label>
-                                <input className="form-control bg-light" type="text" id="doctor_fees" name="doctor_fees" />
+                                <input className="form-control" type="text" id="doctor_fees" name="doctor_fees" />
                             </div>
                             <div className="mb-4">
                                 <label className="form-label">Appointment Priority</label>
                                 <select 
-                                    className="form-select bg-light"
+                                    className="form-select"
                                     aria-label="Default select example"
                                     defaultValue=""
                                     id="appointment_priority"
@@ -69,7 +69,7 @@ const RescheduleModal = ({handleCloseModal}) => {
                         <div className="col-12 col-lg-3">
                             <div className="mb-4">
                                 <label className="form-label">Shift<span>*</span></label>
-                                <select className="form-select bg-light" type="text" id="Shift" name="Shift">
+                                <select className="form-select" type="text" id="Shift" name="Shift">
                                     <option value="Select"></option>
                                     <option value="Morning">Morning</option>
                                     <option value="Evening">Evening</option>
@@ -77,19 +77,19 @@ const RescheduleModal = ({handleCloseModal}) => {
                             </div>
                             <div className="mb-4">
                                 <label className="form-label">Discount Percentage</label>
-                                <input className="form-control bg-light" type="text" id="discount_percentage" name="discount_percentage" />
+                                <input className="form-control" type="text" id="discount_percentage" name="discount_percentage" />
                             </div>
                         </div>
                         <div className="col-12 col-lg-3">
                             <div className="mb-4">
                                 <label className="form-label">Appointment Date<span>*</span></label>
                                 <DatePickerComponent 
-                                    className="form-control bg-light" type="date" id="date" name="date" 
+                                    className="form-control" type="date" id="date" name="date" 
                                 />
                             </div>
                             <div className="mb-4">
                                 <label className="form-label">Status<span>*</span></label>
-                                <select className="form-select bg-light" type="text" id="Shift" name="Shift">
+                                <select className="form-select" type="text" id="Shift" name="Shift">
                                     <option value="Select">Select</option>
                                     <option value="Pending">Pending</option>
                                     <option value="Approved">Approved</option>
@@ -100,7 +100,7 @@ const RescheduleModal = ({handleCloseModal}) => {
                         <div className="col-12 col-lg-5">
                             <div className="mb-4">
                                 <label className="form-label">Live Consultant (On Video Conference)<span>*</span></label>
-                                 <select className="form-select bg-light" type="text" id="Shift" name="Shift">
+                                 <select className="form-select" type="text" id="Shift" name="Shift">
                                     <option value="Select">Select</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
@@ -111,7 +111,7 @@ const RescheduleModal = ({handleCloseModal}) => {
                             <div className="mb-4">
                                 <label className="form-label">Message</label>
                                 <textarea
-                                    className="form-control bg-light"
+                                    className="form-control"
                                     name="Message"
                                     id="Message"
                                     rows="1"
@@ -122,7 +122,7 @@ const RescheduleModal = ({handleCloseModal}) => {
                             <div className="mb-4">
                                 <label className="form-label">Alternate Address</label>
                                 <textarea
-                                    className="form-control bg-light"
+                                    className="form-control"
                                     name="Message"
                                     id="Message"
                                     rows="1"

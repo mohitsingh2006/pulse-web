@@ -2,24 +2,14 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthContext from "../context/auth";
 import toast from "react-hot-toast";
+import { useActiveLink } from "../hooks/useActiveLink";
 
 const Sidebar = ({ isCollapsed }) => {
   const {logout}  = useContext(AuthContext);
   const location = useLocation(); 
   const navigate = useNavigate();
+  const getLinkClassName = useActiveLink();
 
-  const getLinkClassName = (path) => {
-    const isActive = location.pathname === path;
-    
-    // Special handling for the root path ('/') to avoid matching all routes
-    if (path === '/') {
-        // Only return 'active' if the pathname is exactly '/'
-        return location.pathname === '/' ? 'nav-link active' : 'nav-link';
-    }
-
-    // For all other paths, check if the paths match
-    return isActive ? 'nav-link active' : 'nav-link';
-  };
 
   const logoutUser = () => {
       logout();       
@@ -38,7 +28,7 @@ const Sidebar = ({ isCollapsed }) => {
 
       <div className="nav flex-column py-2 mt-2">
         <div className="mb-2">
-          <Link to="/dashboard" className={getLinkClassName('/dashboard')}>
+          <Link to="/dashboard" className={getLinkClassName('/dashboard','nav-link')}>
             <svg
               className="me-3"
               width="24"
@@ -527,7 +517,7 @@ const Sidebar = ({ isCollapsed }) => {
         </div>
 
         <div className="mb-2">
-          <Link to="/general-setting" className="nav-link">
+          <Link className={getLinkClassName('/setting/general')} to="/setting/general">
             <svg
               className="me-3"
               width="24"

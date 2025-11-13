@@ -302,7 +302,10 @@ const Appointment = () => {
                                     aria-labelledby="pills-contact-tab"
                                 >
                                     <div className="mt-4">
-                                       <OldAppointment />
+                                       <OldAppointment 
+                                        setShowAppointmentDetailModal={setShowAppointmentDetailModal}
+                                        setShowRescheduleModal={setShowRescheduleModal}
+                                       />
                                     </div>
                                 </div>
                             </div>

@@ -83,15 +83,21 @@ h6{
 }
 .table thead {
   background: #f9fafb;
+  border: 1px solid var(--tertiary-grey-color);
+  border-radius: 5px;
 }
 .table thead th {
   text-transform: uppercase;
   color: #979393;
   font-weight: 500;
   font-size: 14px;
+  
 }
 .table tbody tr {
   vertical-align: middle;
+  border: 1px solid var(--tertiary-grey-color);
+ 
+  border-radius: 5px;
 }
 .table tbody tr td {
   font-family: 400;
@@ -216,10 +222,10 @@ h6{
 }
 
 .table tbody tr td .user-image{
-    background-color: #e5e7eb;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+  background-color: #e5e7eb;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
 

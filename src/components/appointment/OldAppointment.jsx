@@ -3,7 +3,7 @@ import { LuUser } from "react-icons/lu";
 import { MdOutlineCalendarMonth } from "react-icons/md";
 import { SlPrinter } from "react-icons/sl";
 import { useEffect, useRef, useState } from "react";
-const OldAppointment = () => {
+const OldAppointment = ({setShowAppointmentDetailModal,setShowRescheduleModal}) => {
 
     
   return (

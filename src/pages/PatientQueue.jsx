@@ -24,7 +24,7 @@ const PatientQueue = () => {
                     <span> *</span>
                   </label>
                   <select
-                    className="form-select bg-light"
+                    className="form-select"
                     aria-label="Default select example"
                     defaultValue=""
                     name="gender"
@@ -45,7 +45,7 @@ const PatientQueue = () => {
                     <span> *</span>
                   </label>
                   <select
-                    className="form-select bg-light"
+                    className="form-select"
                     aria-label="Default select example"
                     defaultValue=""
                     name="gender"
@@ -69,7 +69,7 @@ const PatientQueue = () => {
                           selected={field.value}
                           onChange={(date) => field.onChange(date)}
                           dateFormat="date"
-                          className="form-control bg-light"
+                          className="form-control"
                           placeholderText="Select Date"
                           showMonthDropdown
                           showYearDropdown
@@ -87,7 +87,7 @@ const PatientQueue = () => {
                     <span> *</span>
                   </label>
                   <select
-                    className="form-select bg-light"
+                    className="form-select"
                     aria-label="Default select example"
                     defaultValue=""
                     name="gender"

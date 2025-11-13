@@ -1,137 +1,90 @@
-import { Routes, Route, Navigate, BrowserRouter } from 'react-router-dom'
+import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./assets/global.css";
 import "./assets/style.css";
 import "./assets/media.css";
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import Patient from './pages/Patient';
-import Appointment from './pages/Appointment';
-import ProtectRoute from './ProtectRoute';
-import AppointmentSchedule from './pages/AppointmentSchedule';
-import PatientQueue from './pages/PatientQueue';
-import OpdPatient from './pages/OpdPatient';
-import AddPatient from './pages/AddPatient';
-import Staff from './pages/hr/Staff';
-import CreateStaff from './pages/hr/CreateStaff';
-import StaffAttendance from './pages/hr/StaffAttendance';
-import Payroll from './pages/hr/Payroll';
-import LeaveRequest from './pages/hr/LeaveRequest';
-import ApproveLeave from './pages/hr/ ApproveLeave';
-import IpdPatient from './pages/hr/IpdPatient';
-import DischargedPatient from './pages/hr/DischargedPatient';
-import IdpProfile from './pages/hr/IdpProfile';
-import GeneralSetting from './pages/setting/GeneralSetting';
-import Setting from './pages/setting/Setting';
-import AttendanceSetting from './pages/setting/AttendanceSetting';
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import Patient from "./pages/Patient";
+import Appointment from "./pages/Appointment";
+import ProtectRoute from "./ProtectRoute";
+import AppointmentSchedule from "./pages/AppointmentSchedule";
+import PatientQueue from "./pages/PatientQueue";
+import OpdPatient from "./pages/OpdPatient";
+import AddPatient from "./pages/AddPatient";
+import Staff from "./pages/hr/Staff";
+import CreateStaff from "./pages/hr/CreateStaff";
+import StaffAttendance from "./pages/hr/StaffAttendance";
+import Payroll from "./pages/hr/Payroll";
+import LeaveRequest from "./pages/hr/LeaveRequest";
+import ApproveLeave from "./pages/hr/ ApproveLeave";
+import IpdPatient from "./pages/hr/IpdPatient";
+import DischargedPatient from "./pages/hr/DischargedPatient";
+import IdpProfile from "./pages/hr/IdpProfile";
+import GeneralSetting from "./pages/setting/GeneralSetting";
+import Setting from "./pages/setting/Setting";
+import AttendanceSetting from "./pages/setting/AttendanceSetting";
+import NotificationSetting from "./pages/setting/NotificationSetting";
+import User from "./pages/User";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-          <Route path="/" element={<Navigate to="/login" replace />}/>
-          <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={
+        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/dashboard"
+          element={
             <ProtectRoute>
               <Dashboard />
-            </ProtectRoute>} 
-            />
-          <Route path="/patient" element={
-            <ProtectRoute>
-                <Patient />
             </ProtectRoute>
-          } />
-
-          <Route path="/appointment" element={
+          }
+        />
+        <Route
+          path="/patient"
+          element={
             <ProtectRoute>
-                <Appointment />
+              <Patient />
             </ProtectRoute>
-          } />
-          
-          <Route path="/appointment/schedule" element={
-            
-            <AppointmentSchedule />
-            
-          } />
+          }
+        />
 
+        <Route path="/appointment" element={<Appointment />} />
 
-           <Route path="/testing/max" element={
-            
-                <AppointmentSchedule />
-            
-          } />
-          <Route path="/appointment/patientqueue" element={
-            <PatientQueue />
-          }
-          />
+        <Route path="/appointment/schedule" element={<AppointmentSchedule />} />
 
-          <Route path="/opdpatient" element={
-            <OpdPatient />
-          }
-          />
+        <Route path="/testing/max" element={<AppointmentSchedule />} />
+        <Route path="/appointment/patientqueue" element={<PatientQueue />} />
 
-         <Route path="/addpatient" element={
-            <AddPatient />
-          }
-          />
+        <Route path="/opdpatient" element={<OpdPatient />} />
 
-          <Route path="/staff" element={
-            <Staff />
-          }
-          />
+        <Route path="/addpatient" element={<AddPatient />} />
 
-          <Route path="/create-staff" element={
-            <CreateStaff />
-          }
-          />
-          
-          <Route path="/staff-attendance" element={
-            <StaffAttendance/>
-          }
-          />
-          <Route path="/payroll" element={
-            <Payroll/>
-          }
-          />
+        <Route path="/staff" element={<Staff />} />
 
-           <Route path="/leave-request" element={
-            <LeaveRequest/>
-          }
-          />
+        <Route path="/create-staff" element={<CreateStaff />} />
 
-          <Route path="/approveleave" element={
-            <ApproveLeave />
-          }
-          />
+        <Route path="/staff-attendance" element={<StaffAttendance />} />
+        <Route path="/payroll" element={<Payroll />} />
 
-          <Route path="/ipd-patient" element={
-            <IpdPatient />
-          }
-          />
-          <Route path="/discharged-patient" element={
-            <DischargedPatient />
-          }
-          />
+        <Route path="/leave-request" element={<LeaveRequest />} />
 
-          <Route path="/idp-profile" element={
-            <IdpProfile />
-          }
-          />
-          <Route path="/setting" element={
-            <Setting />
-          }
-          />
-          <Route path="/general-setting" element={
-            <GeneralSetting />
-          }
-          />
-          <Route path="/attendance-setting" element={
-            <AttendanceSetting />
-          }
-          />
-        </Routes>
-        
+        <Route path="/approveleave" element={<ApproveLeave />} />
+
+        <Route path="/ipd-patient" element={<IpdPatient />} />
+        <Route path="/discharged-patient" element={<DischargedPatient />} />
+
+        <Route path="/idp-profile" element={<IdpProfile />} />
+        <Route path="/setting/general" element={<Setting />} />
+
+        <Route path="setting/attendance" element={<AttendanceSetting />} />
+
+        <Route path="setting/notification" element={<NotificationSetting />} />
+
+        <Route path="user" element={<User />} />
+      </Routes>
     </BrowserRouter>
   );
 }
