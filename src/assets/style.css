@@ -445,14 +445,35 @@ span.flatpickr-weekday{
     outline: none;  
 }
 .ipd-main-page .nav-pills {
-      display: flex;
+    display: flex;
     margin: 0;
     list-style: none;
     white-space: nowrap;
     transition: all .18s ease;
     overflow-x: auto;     
     -webkit-overflow-scrolling: touch;
+
+
+    height: 50px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    /* Optional: Hide scrollbar for a cleaner "smart" look */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+
+    transition: height 0.5s;
+    
 }
+.ipd-main-page .nav-pills:hover{
+    overflow-x: scroll;
+    scrollbar-width: thin;
+    height: 60px;
+}
+
+
+
+
+
 .ipd-main-page .nav-pills .nav-item .nav-link{
     color: #979393;
     border-radius: 0px;
